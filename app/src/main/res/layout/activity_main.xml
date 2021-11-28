@@ -6,24 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="93dp"
-        android:layout_height="59dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="35dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TableNr" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <Spinner
+        android:id="@+id/table_nr_dropdown"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/menu_entry"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <LinearLayout
-        android:layout_width="330dp"
-        android:layout_height="45dp"
+        android:id="@+id/menu_entry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="32dp"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteX="80dp"
-        tools:layout_editor_absoluteY="109dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table_nr_dropdown">
 
         <TextView
             android:id="@+id/textView3"
@@ -38,6 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="add_item"
             android:text="Lägg till" />
 
         <Button
@@ -48,7 +52,7 @@
             android:text="Ta bort" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/nr_of_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,5 +60,17 @@
             android:textSize="20sp" />
 
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="69dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="BordNr"
+        app:layout_constraintBottom_toTopOf="@+id/menu_entry"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
