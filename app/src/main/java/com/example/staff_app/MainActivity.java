@@ -31,13 +31,29 @@ public class MainActivity extends AppCompatActivity {
 
         switch (position) {
             case 0:
-                // Whatever you want to happen when the first item gets selected
+
                 break;
             case 1:
-                // Whatever you want to happen when the second item gets selected
+
                 break;
             case 2:
-                // Whatever you want to happen when the thrid item gets selected
+
+                break;
+
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+            case 7:
+
                 break;
 
         }

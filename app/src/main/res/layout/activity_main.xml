@@ -2,9 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:visibility="visible">
 
     <Spinner
         android:id="@+id/table_nr_dropdown"
@@ -30,32 +31,32 @@
         app:layout_constraintTop_toBottomOf="@+id/table_nr_dropdown">
 
         <TextView
-            android:id="@+id/dish"
+            android:id="@+id/drink1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Korv"
+            android:text="Korv, mos, sallad"
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/add_dish"
-            android:layout_width="wrap_content"
+            android:id="@+id/add_drink"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="add_item"
-            android:text="Lägg till" />
+            android:text="+" />
 
         <Button
             android:id="@+id/removeDish"
-            android:layout_width="wrap_content"
+            android:layout_width="48dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="remove_item"
-            android:text="Ta bort" />
+            android:text="-" />
 
         <TextView
             android:id="@+id/nr_of_items"
-            android:layout_width="wrap_content"
+            android:layout_width="29dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="0"
@@ -69,10 +70,36 @@
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="4dp"
+        android:editable="false"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="BordNr"
         app:layout_constraintBottom_toTopOf="@+id/menu_entry"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="Deprecated" />
+
+    <RelativeLayout
+        android:layout_width="303dp"
+        android:layout_height="900dp"
+        tools:layout_editor_absoluteX="977dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            app:srcCompat="@drawable/ic_action_name" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="298dp"
+            android:layout_height="72dp"
+            android:layout_below="@+id/imageView3"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="741dp"
+            android:layout_marginEnd="0dp"
+            android:text="Button" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
