@@ -49,4 +49,16 @@ public class MainActivity extends AppCompatActivity {
         text.setText("" + count);
     }
 
+
+    public void remove_item(View view) {
+
+        if(count <= 0 )
+        {
+            return;
+        }
+
+        count--;
+        TextView text = (TextView) findViewById(R.id.nr_of_items);
+        text.setText("" + count);
+    }
 }
