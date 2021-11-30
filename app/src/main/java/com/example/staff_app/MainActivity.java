@@ -1,6 +1,8 @@
 package com.example.staff_app;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,14 +11,22 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     private int count = 0;
     private Spinner spinner;
     private static final String[] paths = {"1", "2","3","4","5","6","7",};
+    FoodCustomAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        ArrayList<Food> foods = new ArrayList<Food>();
+        Food food = new Food(1,"Fisk");
+        foods.add(food);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -24,40 +34,21 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String>adapter = new ArrayAdapter<String>(MainActivity.this,android.R.layout.simple_spinner_item,paths);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+
+        RecyclerView recycler = findViewById(R.id.recyclerFood);
+
+        //orders = Order.populateOrders();
+        customAdapter = new FoodCustomAdapter(MainActivity.this, foods);
+        recycler.setAdapter(customAdapter);
+        recycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+       //customAdapter.add_f(f);
+
     }
 
     //@Override
-    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
+    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {}
 
-        switch (position) {
-            case 0:
 
-                break;
-            case 1:
-
-                break;
-            case 2:
-
-                break;
-
-            case 3:
-
-                break;
-            case 4:
-
-                break;
-            case 5:
-
-                break;
-            case 6:
-
-                break;
-            case 7:
-
-                break;
-
-        }
-    }
 
     public void add_item(View view) {
         count++;
