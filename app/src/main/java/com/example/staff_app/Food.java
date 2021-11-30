@@ -2,13 +2,18 @@ package com.example.staff_app;
 
 public class Food {
 
-    private int tableNumber;
     private String name;
+    public int counter = 0;
 
-    public Food(int tableNumber, String name){
-        this.tableNumber = tableNumber;
+    public Food(String name){
         this.name = name;
     }
-    public int getTableNumber() {return tableNumber;}
+
+    public void setCounter(){
+        counter++;
+
+    }
+
     public String getName() {return name;}
+    //public int getCount(){return counter;}
 }

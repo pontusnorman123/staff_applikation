@@ -12,14 +12,14 @@
         android:layout_height="33dp"
         android:layout_marginStart="676dp"
         android:layout_marginTop="77dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="414dp"
         android:fontFamily="sans-serif"
         android:text="Drycker"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:layout_constraintBottom_toTopOf="@+id/menu_entry"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,53 +46,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Deprecated" />
 
-    <LinearLayout
-        android:id="@+id/menu_entry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="730dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelFood"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/food1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Korv, mos, sallad"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/addDish"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="add_item"
-            android:text="+" />
-
-        <Button
-            android:id="@+id/removeDish"
-            android:layout_width="48dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="remove_item"
-            android:text="-" />
-
-        <TextView
-            android:id="@+id/nr_of_items"
-            android:layout_width="29dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="0"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/labelFood"
         android:layout_width="190dp"
@@ -109,12 +62,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerFood"
-        android:layout_width="173dp"
-        android:layout_height="261dp"
-        android:layout_marginStart="164dp"
-        android:layout_marginTop="324dp"
+        android:id="@+id/recyclerDrink"
+        android:layout_width="250dp"
+        android:layout_height="225dp"
+        android:layout_marginStart="616dp"
+        android:layout_marginTop="108dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFood"
+        android:layout_width="531dp"
+        android:layout_height="537dp"
+
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelFood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

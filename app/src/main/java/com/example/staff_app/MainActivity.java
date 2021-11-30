@@ -18,14 +18,20 @@ public class MainActivity extends AppCompatActivity {
     private int count = 0;
     private Spinner spinner;
     private static final String[] paths = {"1", "2","3","4","5","6","7",};
-    FoodCustomAdapter customAdapter;
-
+    FoodCustomAdapter customAdapterFood;
+    FoodCustomAdapter customAdapterDrink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         ArrayList<Food> foods = new ArrayList<Food>();
-        Food food = new Food(1,"Fisk");
+        Food food = new Food("Fiskpinnar. Potatis");
+        Food food2 = new Food("Fiskpinnar. Potatis");
         foods.add(food);
+        foods.add(food2);
+
+        ArrayList<Food> drinks = new ArrayList<Food>();
+        Food drink = new Food("Coca Cola");
+        drinks.add(drink);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -35,13 +41,19 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        RecyclerView recycler = findViewById(R.id.recyclerFood);
+        RecyclerView recyclerFood = findViewById(R.id.recyclerFood);
+        RecyclerView recyclerDrink = findViewById(R.id.recyclerDrink);
 
-        //orders = Order.populateOrders();
-        customAdapter = new FoodCustomAdapter(MainActivity.this, foods);
-        recycler.setAdapter(customAdapter);
-        recycler.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-       //customAdapter.add_f(f);
+        // Dishes
+        customAdapterFood = new FoodCustomAdapter(MainActivity.this, foods);
+        recyclerFood.setAdapter(customAdapterFood);
+        recyclerFood.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        // Drinks
+        customAdapterDrink = new FoodCustomAdapter(MainActivity.this, drinks);
+        recyclerDrink.setAdapter(customAdapterDrink);
+        recyclerDrink.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
 
     }
 
@@ -51,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void add_item(View view) {
-        count++;
+
         TextView text = (TextView) findViewById(R.id.nr_of_items);
         text.setText("" + count);
     }

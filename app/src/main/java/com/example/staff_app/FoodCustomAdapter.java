@@ -25,15 +25,9 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         foods = f;
 
     }
-
-   // public void addAll(ArrayList<Food> foods) {
-     //   this.foods.addAll(foods);
-    //}
-
     public void add_f(Food food) {
         foods.add(food);
     }
-
 
     @NonNull
     @Override
@@ -46,7 +40,6 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     @Override
     public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
         Food food = foods.get(position);
-        holder.tableNumber.setText(String.valueOf(food.getTableNumber()));
         holder.name.setText(String.valueOf(food.getName()));
         holder.food = food;
     }
@@ -58,13 +51,12 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tableNumber, name;
+        TextView name;
         Button finished_status;
         Food food;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tableNumber = itemView.findViewById(R.id.tableNumber);
             name = itemView.findViewById(R.id.name);
         }
     }
