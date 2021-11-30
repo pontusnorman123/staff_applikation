@@ -28,7 +28,7 @@
 
         <Button
             android:id="@+id/button_add"
-            android:onClick=""
+            android:onClick="add_item"
             android:layout_width="53dp"
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
@@ -39,6 +39,7 @@
 
         <Button
             android:id="@+id/button_remove"
+            android:onClick="remove_item"
             android:layout_width="53dp"
             android:layout_height="48dp"
             android:layout_marginStart="4dp"
@@ -49,7 +50,7 @@
 
         <TextView
             android:id="@+id/foodCount"
-            android:layout_width="46dp"
+            android:layout_width="67dp"
             android:layout_height="34dp"
             android:layout_marginStart="12dp"
             android:layout_marginBottom="16dp"

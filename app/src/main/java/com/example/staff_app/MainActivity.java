@@ -22,16 +22,16 @@ public class MainActivity extends AppCompatActivity {
     FoodCustomAdapter customAdapterDrink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         ArrayList<Food> foods = new ArrayList<Food>();
         Food food = new Food("Fiskpinnar. Potatis");
-        Food food2 = new Food("Fiskpinnar. Potatis");
+        Food food2 = new Food("Ungsbakad Lax. Potatis");
         foods.add(food);
         foods.add(food2);
-
         ArrayList<Food> drinks = new ArrayList<Food>();
         Food drink = new Food("Coca Cola");
+        Food drink2 = new Food("Fanta");
         drinks.add(drink);
+        drinks.add(drink2);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -53,31 +53,23 @@ public class MainActivity extends AppCompatActivity {
         customAdapterDrink = new FoodCustomAdapter(MainActivity.this, drinks);
         recyclerDrink.setAdapter(customAdapterDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
-
     }
-
-    //@Override
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {}
-
-
-
     public void add_item(View view) {
 
-        TextView text = (TextView) findViewById(R.id.nr_of_items);
+        TextView text = (TextView) findViewById(R.id.foodCount);
+        count++;
         text.setText("" + count);
     }
-
 
     public void remove_item(View view) {
 
-        if(count <= 0 )
-        {
+        if(count <= 0 ) {
             return;
         }
-
         count--;
-        TextView text = (TextView) findViewById(R.id.nr_of_items);
+        TextView text = (TextView) findViewById(R.id.foodCount);
         text.setText("" + count);
     }
 }
+

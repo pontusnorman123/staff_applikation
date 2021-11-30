@@ -9,8 +9,9 @@ public class Food {
         this.name = name;
     }
 
-    public void setCounter(){
+    public void AddCount(){
         counter++;
+
 
     }
 

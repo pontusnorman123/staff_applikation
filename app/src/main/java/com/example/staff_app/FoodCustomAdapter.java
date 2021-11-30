@@ -1,6 +1,7 @@
 package com.example.staff_app;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 // fills Recycler view with myViewHolders(which is the model of order_row_layout)
@@ -42,22 +44,23 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         Food food = foods.get(position);
         holder.name.setText(String.valueOf(food.getName()));
         holder.food = food;
+
     }
 
     @Override
-    public int getItemCount() {
-        return foods.size();
-    }
+    public int getItemCount() {return foods.size();}
+
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
-        Button finished_status;
         Food food;
+        int position;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.name);
+
         }
     }
 }
