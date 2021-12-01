@@ -9,18 +9,19 @@ public class SF {
     public static SF s = new SF();
 
     public FoodCustomAdapter customAdapterFood;
-    public FoodCustomAdapter customAdapterDrink;
+    //public FoodCustomAdapter customAdapterDrink;
     private ArrayList<Food> foods;
-    private ArrayList<Food> drinks;
+    //private ArrayList<Food> drinks;
 
     public ArrayList<Food> getFoods() {return foods;}
+    //public ArrayList<Food> getDrinks() {return drinks;}
 
     public void addFood(Food f) {
         foods.add(f);
     }
 
     public void addDrink(Food d) {
-        foods.add(d);
+        //drinks.add(d);
     }
 
     public void addFoods(ArrayList<Food> f) {
@@ -29,10 +30,25 @@ public class SF {
     }
 
     public void incrementFoodAtPosition(int pos) {
-        foods.get(pos).incrementCounter();
-        customAdapterFood.notifyItemChanged(pos);
+        Food f = foods.get(pos);
+        f.incrementCounter();
+        foods.set(pos, f);
+        //foods.get(pos).incrementCounter();
+        //customAdapterFood.notifyItemChanged(pos);
+        customAdapterFood.notifyDataSetChanged();
     }
 
+//    public void incrementDrinkAtPosition(int pos) {
+//        Food f = drinks.get(pos);
+//        f.incrementCounter();
+//        drinks.set(pos, f);
+//        //foods.get(pos).incrementCounter();
+//        //customAdapterFood.notifyItemChanged(pos);
+//        customAdapterDrink.notifyDataSetChanged();
+//    }
+
     private SF() {
+        foods = new ArrayList<>();
+        //drinks = new ArrayList<>();
     }
 }

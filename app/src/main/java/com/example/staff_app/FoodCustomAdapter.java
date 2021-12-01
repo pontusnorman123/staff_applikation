@@ -20,9 +20,11 @@ import java.util.List;
 public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.MyViewHolder> {
 
     Context context;
+    boolean isDrink;
 
-    FoodCustomAdapter(Context context) {
+    FoodCustomAdapter(Context context, boolean isDrink) {
         this.context = context;
+        this.isDrink = isDrink;
     }
 
     @NonNull
@@ -35,7 +37,11 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
-        holder.food = SF.s.getFoods().get(position);
+        if(isDrink) {
+            //holder.food = SF.s.getDrinks().get(position);
+        } else {
+            holder.food = SF.s.getFoods().get(position);
+        }
     }
 
     @Override
@@ -46,29 +52,31 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         TextView name;
         Button buttonPlus;
         Button buttonMinus;
+        TextView counter;
 
         Food food;
         int position;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
             buttonPlus = itemView.findViewById(R.id.button_add);
             buttonMinus = itemView.findViewById(R.id.button_remove);
+            counter = itemView.findViewById(R.id.foodCount);
+
+            // set values of views
+//            name.setText(food.getName());
+//            counter.setText(food.getCount());
 
             buttonPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-
-
-
-                    //get(getAdapterPosition()).setTime(order.getTime()+1);
-                    // create new identical order
-                    //ArrayList<Order> orders = new ArrayList<Order>();
-                    //orders.add(order);
-                    //SO.s.addOrders(orders);
+                    food.incrementCounter();
+                    //SF.s.incrementFoodAtPosition(getAdapterPosition());
+                    counter.setText(String.valueOf(food.getCount()));
                 }
             });
         }

@@ -59,6 +59,7 @@
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/button_remove" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
