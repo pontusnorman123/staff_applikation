@@ -47,6 +47,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerFood.setAdapter(SF.s.customAdapterFood);
         recyclerFood.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
+        //Kod för att hämta bordsnummer från FrontPage
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String value = extras.getString("key");
+            //The key argument here must match that used in the other activity
+            TextView tableNr = (TextView) findViewById(R.id.tableNr);
+            tableNr.setText(value);
+        }
+
         // Drinks
 //        SF.s.customAdapterDrink = new FoodCustomAdapter(MainActivity.this, true);
 //        recyclerDrink.setAdapter(SF.s.customAdapterDrink);
