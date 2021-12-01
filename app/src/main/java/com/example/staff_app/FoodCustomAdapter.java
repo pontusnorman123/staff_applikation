@@ -20,15 +20,9 @@ import java.util.List;
 public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.MyViewHolder> {
 
     Context context;
-    private ArrayList<Food> foods;
 
-    FoodCustomAdapter(Context context, ArrayList<Food> f) {
+    FoodCustomAdapter(Context context) {
         this.context = context;
-        foods = f;
-
-    }
-    public void add_f(Food food) {
-        foods.add(food);
     }
 
     @NonNull
@@ -41,26 +35,42 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
-        Food food = foods.get(position);
-        holder.name.setText(String.valueOf(food.getName()));
-        holder.food = food;
-
+        holder.food = SF.s.getFoods().get(position);
     }
 
     @Override
-    public int getItemCount() {return foods.size();}
-
+    public int getItemCount() {return SF.s.getFoods().size();}
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        Button buttonPlus;
+        Button buttonMinus;
+
         Food food;
         int position;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+            position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
+            buttonPlus = itemView.findViewById(R.id.button_add);
+            buttonMinus = itemView.findViewById(R.id.button_remove);
 
+            buttonPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("test", "clicked " + getAdapterPosition());
+
+
+
+                    //get(getAdapterPosition()).setTime(order.getTime()+1);
+                    // create new identical order
+                    //ArrayList<Order> orders = new ArrayList<Order>();
+                    //orders.add(order);
+                    //SO.s.addOrders(orders);
+                }
+            });
         }
     }
 }
