@@ -13,10 +13,7 @@ public class MenuItem {
         counter++;
     }
     public void decrementCounter(){
-        if(counter <= 0)
-            return;
-        else
-            counter--;
+        if(counter > 0) { counter--; }
     }
     
     public String getName() {return name;}

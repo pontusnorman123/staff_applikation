@@ -1,6 +1,7 @@
 package com.example.staff_app;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class SF {
     // singleton class for orders
@@ -32,9 +33,13 @@ public class SF {
         customAdapterFood.notifyDataSetChanged();
     }
 
-
-
     private SF() {
         //resetAll();
     }
+
+    public void bringFoodToTopAtPosition(int pos) {
+        //find first with 0
+        Collections.swap(foods, pos, foods.size()-1);
+    }
+
 }

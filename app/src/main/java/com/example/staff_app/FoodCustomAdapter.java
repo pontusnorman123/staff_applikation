@@ -70,7 +70,9 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
                     food.incrementCounter();
-                    //SF.s.incrementFoodAtPosition(getAdapterPosition());
+                    if(food.getCount() == 1) {
+                        SF.s.bringFoodToTopAtPosition(getAdapterPosition());
+                    }
                     counter.setText(String.valueOf(food.getCount()));
                 }
             });
@@ -80,7 +82,9 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
                     food.decrementCounter();
-                    //SF.s.incrementFoodAtPosition(getAdapterPosition());
+                    if(food.getCount() == 0) {
+                        //ta bort från toppen
+                    }
                     counter.setText(String.valueOf(food.getCount()));
                 }
             });
