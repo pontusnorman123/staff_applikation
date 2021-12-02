@@ -37,7 +37,7 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
     }
 
     @Override
-    public int getItemCount() {return SF.s.getFoods().size();}
+    public int getItemCount() {return SF.s.getDrinks().size();}
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
