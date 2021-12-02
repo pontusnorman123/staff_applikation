@@ -67,7 +67,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             counter = itemView.findViewById(R.id.foodCount);
 
             // set values of views
-//            name.setText(food.getName());
+//           name.setText(food.getName());
 //            counter.setText(food.getCount());
 
             buttonPlus.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +75,16 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
                     food.incrementCounter();
+                    //SF.s.incrementFoodAtPosition(getAdapterPosition());
+                    counter.setText(String.valueOf(food.getCount()));
+                }
+            });
+
+            buttonMinus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("test", "clicked " + getAdapterPosition());
+                    food.decrementCounter();
                     //SF.s.incrementFoodAtPosition(getAdapterPosition());
                     counter.setText(String.valueOf(food.getCount()));
                 }

@@ -12,6 +12,12 @@ public class Food {
     public void incrementCounter(){
         counter++;
     }
+    public void decrementCounter(){
+        if(counter <= 0)
+            return;
+        else
+            counter--;
+    }
 
     public String getName() {return name;}
     public int getCount(){return counter;}
