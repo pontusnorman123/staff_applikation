@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // set menu items (from dish in DB)
         SF.s.resetAll();
         MenuItem food = new MenuItem("Fiskpinnar. Potatis");

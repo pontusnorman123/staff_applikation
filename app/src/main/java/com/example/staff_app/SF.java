@@ -32,23 +32,7 @@ public class SF {
         customAdapterFood.notifyDataSetChanged();
     }
 
-    public void incrementFoodAtPosition(int pos) {
-        MenuItem f = foods.get(pos);
-        f.incrementCounter();
-        foods.set(pos, f);
-        //foods.get(pos).incrementCounter();
-        customAdapterFood.notifyItemChanged(pos);
-        //customAdapterFood.notifyDataSetChanged();
-    }
 
-    public void incrementDrinkAtPosition(int pos) {
-        MenuItem f = drinks.get(pos);
-        f.incrementCounter();
-        drinks.set(pos, f);
-        //foods.get(pos).incrementCounter();
-        customAdapterDrink.notifyItemChanged(pos);
-        //customAdapterDrink.notifyDataSetChanged();
-    }
 
     private SF() {
         //resetAll();
