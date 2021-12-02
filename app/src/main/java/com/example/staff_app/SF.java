@@ -41,10 +41,6 @@ public class SF {
         //customAdapterFood.notifyDataSetChanged();
     }
 
-//    public void clear(){
-//        foods.clear();
-//    }
-
     public void incrementDrinkAtPosition(int pos) {
         MenuItem f = drinks.get(pos);
         f.incrementCounter();
