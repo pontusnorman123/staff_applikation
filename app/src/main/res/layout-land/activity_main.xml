@@ -23,25 +23,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Spinner
-        android:id="@+id/table_nr_dropdown"
-        android:layout_width="87dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <EditText
         android:id="@+id/editTextTextPersonName"
-        android:layout_width="69dp"
-        android:layout_height="48dp"
+        android:layout_width="91dp"
+        android:layout_height="45dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:editable="false"
         android:ems="10"
-        android:text="BordNr"
-        app:layout_constraintEnd_toStartOf="@+id/table_nr_dropdown"
+        android:text="Valt Bord:"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Deprecated" />
@@ -86,8 +77,12 @@
         android:id="@+id/tableNr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="18dp"
         android:text="TextView"
-        tools:layout_editor_absoluteX="229dp"
-        tools:layout_editor_absoluteY="20dp" />
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

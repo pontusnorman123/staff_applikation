@@ -18,6 +18,16 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         tableOneButton.setOnClickListener(this);
         final Button tableTwoButton = (Button)findViewById(R.id.tableTwoButton);
         tableTwoButton.setOnClickListener(this);
+        final Button tableThreeButton = (Button)findViewById(R.id.tableTwoButton);
+        tableTwoButton.setOnClickListener(this);
+        final Button tableFourButton = (Button)findViewById(R.id.tableTwoButton);
+        tableTwoButton.setOnClickListener(this);
+        final Button tableFiveButton = (Button)findViewById(R.id.tableTwoButton);
+        tableTwoButton.setOnClickListener(this);
+        final Button tableSixButton = (Button)findViewById(R.id.tableTwoButton);
+        tableTwoButton.setOnClickListener(this);
+        final Button tableSevenButton = (Button)findViewById(R.id.tableTwoButton);
+        tableTwoButton.setOnClickListener(this);
     }
 
     @Override
@@ -25,6 +35,11 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
 
         final Button tableOneButton = (Button)findViewById(R.id.tableOneButton);
         final Button tableTwoButton = (Button)findViewById(R.id.tableTwoButton);
+        final Button tableThreeButton = (Button)findViewById(R.id.tableOneButton);
+        final Button tableFourButton = (Button)findViewById(R.id.tableTwoButton);
+        final Button tableFiveButton = (Button)findViewById(R.id.tableOneButton);
+        final Button tableSixButton = (Button)findViewById(R.id.tableTwoButton);
+        final Button tableSevenButton = (Button)findViewById(R.id.tableOneButton);
 
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
 
@@ -34,6 +49,21 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
                 i.putExtra("key", tableOneButton.getText());
                 break;
             case R.id.tableTwoButton:
+                i.putExtra("key", tableTwoButton.getText());
+                break;
+            case R.id.tableThreeButton:
+                i.putExtra("key", tableTwoButton.getText());
+                break;
+            case R.id.tableFourButton:
+                i.putExtra("key", tableTwoButton.getText());
+                break;
+            case R.id.tableFiveButton:
+                i.putExtra("key", tableTwoButton.getText());
+                break;
+            case R.id.tableSixButton:
+                i.putExtra("key", tableTwoButton.getText());
+                break;
+            case R.id.tableSevenButton:
                 i.putExtra("key", tableTwoButton.getText());
                 break;
         }

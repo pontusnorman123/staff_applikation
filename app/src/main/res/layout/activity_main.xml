@@ -7,28 +7,17 @@
     tools:context=".MainActivity"
     tools:visibility="visible">
 
-    <Spinner
-        android:id="@+id/table_nr_dropdown"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/menu_entry"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <LinearLayout
         android:id="@+id/menu_entry"
         android:layout_width="312dp"
         android:layout_height="47dp"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="4dp"
         android:layout_marginEnd="32dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/table_nr_dropdown">
+        tools:layout_editor_absoluteY="52dp">
 
         <TextView
             android:id="@+id/drink1"
