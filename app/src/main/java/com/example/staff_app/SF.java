@@ -1,7 +1,5 @@
 package com.example.staff_app;
 
-import androidx.recyclerview.widget.SortedList;
-
 import java.util.ArrayList;
 
 public class SF {
@@ -9,51 +7,54 @@ public class SF {
     public static SF s = new SF();
 
     public FoodCustomAdapter customAdapterFood;
-    public FoodCustomAdapter customAdapterDrink;
-    public ArrayList<Food> foods;
-    private ArrayList<Food> drinks;
+    public DrinkCustomAdapter customAdapterDrink;
+    private ArrayList<MenuItem> foods;
+    private ArrayList<MenuItem> drinks;
 
-    public ArrayList<Food> getFoods() {return foods;}
-    public ArrayList<Food> getDrinks() {return drinks;}
+    public ArrayList<MenuItem> getFoods() {return foods;}
+    public ArrayList<MenuItem> getDrinks() {return drinks;}
 
-    public void addFood(Food f) {
+    public void resetAll() {
+        foods = new ArrayList<>();
+        drinks = new ArrayList<>();
+    }
+
+    public void addFood(MenuItem f) {
         foods.add(f);
     }
 
-    public void addDrink(Food d) {
-        //drinks.add(d);
+    public void addDrink(MenuItem d) {
+        drinks.add(d);
     }
 
-    public void addFoods(ArrayList<Food> f) {
+    public void addFoods(ArrayList<MenuItem> f) {
         foods.addAll(f);
         customAdapterFood.notifyDataSetChanged();
     }
 
     public void incrementFoodAtPosition(int pos) {
-        Food f = foods.get(pos);
+        MenuItem f = foods.get(pos);
         f.incrementCounter();
         foods.set(pos, f);
         //foods.get(pos).incrementCounter();
-        //customAdapterFood.notifyItemChanged(pos);
-        customAdapterFood.notifyDataSetChanged();
+        customAdapterFood.notifyItemChanged(pos);
+        //customAdapterFood.notifyDataSetChanged();
     }
 
     public void clear(){
         foods.clear();
     }
 
-
-//    public void incrementDrinkAtPosition(int pos) {
-//        Food f = drinks.get(pos);
-//        f.incrementCounter();
-//        drinks.set(pos, f);
-//        //foods.get(pos).incrementCounter();
-//        //customAdapterFood.notifyItemChanged(pos);
-//        customAdapterDrink.notifyDataSetChanged();
-//    }
+    public void incrementDrinkAtPosition(int pos) {
+        MenuItem f = drinks.get(pos);
+        f.incrementCounter();
+        drinks.set(pos, f);
+        //foods.get(pos).incrementCounter();
+        customAdapterDrink.notifyItemChanged(pos);
+        //customAdapterDrink.notifyDataSetChanged();
+    }
 
     private SF() {
-        foods = new ArrayList<>();
-        //drinks = new ArrayList<>();
+        //resetAll();
     }
 }

@@ -11,32 +11,29 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 
 // fills Recycler view with myViewHolders(which is the model of order_row_layout)
 
-public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.MyViewHolder> {
+public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.MyViewHolder> {
 
     Context context;
 
-    FoodCustomAdapter(Context context) {
+    DrinkCustomAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
-    public FoodCustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public DrinkCustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.order_layout_row, parent, false);
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
-        holder.food = SF.s.getFoods().get(position);
-        holder.name.setText(holder.food.getName());;
+    public void onBindViewHolder(@NonNull DrinkCustomAdapter.MyViewHolder holder, int position) {
+        holder.drink = SF.s.getDrinks().get(position);
+        holder.name.setText(holder.drink.getName());;
     }
 
     @Override
@@ -49,7 +46,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         Button buttonMinus;
         TextView counter;
 
-        MenuItem food;
+        MenuItem drink;
         int position;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -69,9 +66,9 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    food.incrementCounter();
+                    drink.incrementCounter();
                     //SF.s.incrementFoodAtPosition(getAdapterPosition());
-                    counter.setText(String.valueOf(food.getCount()));
+                    counter.setText(String.valueOf(drink.getCount()));
                 }
             });
 
@@ -79,9 +76,9 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    food.decrementCounter();
+                    drink.decrementCounter();
                     //SF.s.incrementFoodAtPosition(getAdapterPosition());
-                    counter.setText(String.valueOf(food.getCount()));
+                    counter.setText(String.valueOf(drink.getCount()));
                 }
             });
         }
