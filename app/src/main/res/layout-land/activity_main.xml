@@ -10,16 +10,14 @@
         android:id="@+id/labelDrinks"
         android:layout_width="190dp"
         android:layout_height="33dp"
-        android:layout_marginStart="676dp"
-        android:layout_marginTop="77dp"
-        android:layout_marginEnd="414dp"
+        android:layout_marginStart="580dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="sans-serif"
         android:text="Drycker"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -41,8 +39,8 @@
         android:id="@+id/labelFood"
         android:layout_width="190dp"
         android:layout_height="33dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="77dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="sans-serif"
         android:text="Rätter"
         android:textAllCaps="true"
@@ -54,18 +52,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerDrink"
-        android:layout_width="250dp"
-        android:layout_height="225dp"
-        android:layout_marginStart="616dp"
-        android:layout_marginTop="108dp"
+        android:layout_width="500dp"
+        android:layout_height="537dp"
+        android:layout_marginStart="524dp"
+        android:layout_marginTop="112dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFood"
-        android:layout_width="531dp"
+        android:layout_width="500dp"
         android:layout_height="537dp"
 
         android:layout_marginStart="1dp"
