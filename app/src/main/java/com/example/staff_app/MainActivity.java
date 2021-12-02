@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
         SF.s.addFood(food);
         SF.s.addFood(food2);
 
+        SF.s.addFood(new MenuItem("McDonald's from next door"));
+        SF.s.addFood(new MenuItem("kyckling sushi"));
+        SF.s.addFood(new MenuItem("1 raw potato"));
+
         MenuItem drink = new MenuItem("Coca Cola");
         MenuItem drink2 = new MenuItem("Fanta");
         SF.s.addDrink(drink);

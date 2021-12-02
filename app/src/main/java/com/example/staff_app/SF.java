@@ -40,6 +40,6 @@ public class SF {
     public void bringFoodToTopAtPosition(int pos) {
         //find first with 0
         Collections.swap(foods, pos, foods.size()-1);
+        customAdapterFood.notifyDataSetChanged();
     }
-
 }
