@@ -9,12 +9,12 @@ public class SF {
     public static SF s = new SF();
 
     public FoodCustomAdapter customAdapterFood;
-    //public FoodCustomAdapter customAdapterDrink;
+    public FoodCustomAdapter customAdapterDrink;
     private ArrayList<Food> foods;
-    //private ArrayList<Food> drinks;
+    private ArrayList<Food> drinks;
 
     public ArrayList<Food> getFoods() {return foods;}
-    //public ArrayList<Food> getDrinks() {return drinks;}
+    public ArrayList<Food> getDrinks() {return drinks;}
 
     public void addFood(Food f) {
         foods.add(f);
@@ -37,6 +37,7 @@ public class SF {
         //customAdapterFood.notifyItemChanged(pos);
         customAdapterFood.notifyDataSetChanged();
     }
+
 
 //    public void incrementDrinkAtPosition(int pos) {
 //        Food f = drinks.get(pos);

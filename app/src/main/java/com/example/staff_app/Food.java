@@ -18,7 +18,7 @@ public class Food {
         else
             counter--;
     }
-
+    
     public String getName() {return name;}
     public int getCount(){return counter;}
 }
