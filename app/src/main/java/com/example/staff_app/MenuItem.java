@@ -1,11 +1,11 @@
 package com.example.staff_app;
 
-public class Food {
+public class MenuItem {
 
     private String name;
     public int counter = 0;
 
-    public Food(String name){
+    public MenuItem(String name){
         this.name = name;
     }
 
