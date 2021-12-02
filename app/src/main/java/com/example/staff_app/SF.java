@@ -38,6 +38,10 @@ public class SF {
         customAdapterFood.notifyDataSetChanged();
     }
 
+    public void clear(){
+        foods.clear();
+    }
+
 
 //    public void incrementDrinkAtPosition(int pos) {
 //        Food f = drinks.get(pos);

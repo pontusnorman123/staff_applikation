@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SF.s.clear();
 
         Food food = new Food("Fiskpinnar. Potatis");
         Food food2 = new Food("Ungsbakad Lax. Potatis");
