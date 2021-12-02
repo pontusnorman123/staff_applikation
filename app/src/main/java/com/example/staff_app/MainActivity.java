@@ -15,10 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String[] paths = {"1", "2", "3", "4", "5", "6", "7",};
 
-    //FoodCustomAdapter customAdapterFood;
-    //FoodCustomAdapter customAdapterDrink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         Food drink = new Food("Coca Cola");
         Food drink2 = new Food("Fanta");
-        //SF.s.addDrink(drink);
-        //SF.s.addDrink(drink2);
 
-        //private int count = 0;
 
         RecyclerView recyclerFood = findViewById(R.id.recyclerFood);
         RecyclerView recyclerDrink = findViewById(R.id.recyclerDrink);

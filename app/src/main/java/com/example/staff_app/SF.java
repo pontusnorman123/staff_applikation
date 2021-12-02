@@ -10,7 +10,7 @@ public class SF {
 
     public FoodCustomAdapter customAdapterFood;
     public FoodCustomAdapter customAdapterDrink;
-    private ArrayList<Food> foods;
+    public ArrayList<Food> foods;
     private ArrayList<Food> drinks;
 
     public ArrayList<Food> getFoods() {return foods;}

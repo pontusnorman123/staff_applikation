@@ -1,6 +1,7 @@
 package com.example.staff_app;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -22,10 +24,12 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     Context context;
     boolean isDrink;
 
+
     FoodCustomAdapter(Context context, boolean isDrink) {
         this.context = context;
         this.isDrink = isDrink;
     }
+
 
     @NonNull
     @Override
@@ -42,6 +46,10 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         } else {
             holder.food = SF.s.getFoods().get(position);
         }
+
+
+        //Skriver ut maträtten
+        holder.name.setText(holder.food.getName());
     }
 
     @Override
@@ -53,12 +61,14 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
         Button buttonPlus;
         Button buttonMinus;
         TextView counter;
-
         Food food;
+
         int position;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
+
             // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
@@ -66,10 +76,8 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             buttonMinus = itemView.findViewById(R.id.button_remove);
             counter = itemView.findViewById(R.id.foodCount);
 
-            // set values of views
-//           name.setText(food.getName());
-//            counter.setText(food.getCount());
 
+            //Ökar antalet(Fungerade + knapp)
             buttonPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -80,6 +88,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 }
             });
 
+            //Minskar antalet(Fungerande - knapp)
             buttonMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -91,4 +100,5 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             });
         }
     }
+
 }
