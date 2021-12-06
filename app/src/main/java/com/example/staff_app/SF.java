@@ -1,7 +1,6 @@
 package com.example.staff_app;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class SF {
     // singleton class for orders
@@ -37,13 +36,5 @@ public class SF {
         //resetAll();
     }
 
-    public void bringFoodToTopAtPosition(int pos) {
-        //find first with 0
-        Collections.swap(foods, pos, foods.size()-1);
-        MenuItem temp = foods.get(pos);
-        foods.remove(pos);
-        customAdapterFood.notifyItemRemoved(pos);
-        foods.add(0, temp);
-        customAdapterFood.notifyItemInserted(0);
-    }
+
 }

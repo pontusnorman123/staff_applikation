@@ -5,16 +5,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String[] paths = {"1", "2", "3", "4", "5", "6", "7",};
 
-    //FoodCustomAdapter customAdapterFood;
-    //FoodCustomAdapter customAdapterDrink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView recyclerFood = findViewById(R.id.recyclerFood);
         RecyclerView recyclerDrink = findViewById(R.id.recyclerDrink);
+        RecyclerView recyclerCart = findViewById(R.id.recyclerViewCart);
 
         // Foods
         SF.s.customAdapterFood = new FoodCustomAdapter(MainActivity.this);
