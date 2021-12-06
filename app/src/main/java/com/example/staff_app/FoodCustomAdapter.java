@@ -66,14 +66,14 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    food.incrementCounter();
                     counter.setText(String.valueOf(food.getCount()));
-                    if(food.getCount() > 0) {
-
+                    if(food.getCount() == 0) {
+                        SF.s.addToCart(new MenuItem(food));
                     }
                 }
             });
 
+            /*
             buttonMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -85,6 +85,8 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                     }
                 }
             });
+            */
+
         }
     }
 }

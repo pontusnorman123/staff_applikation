@@ -1,4 +1,4 @@
-/*
+
 package com.example.staff_app;
 
 
@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.MyViewHolder> {
 
     Context context;
+    private final String COUNTER_VALUE_WHEN_ADDED = "1";
 
     CartCustomAdapter(Context context) {
         this.context = context;
@@ -32,20 +33,24 @@ public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull CartCustomAdapter.MyViewHolder holder, int position) {
-        holder.food = SF.s.getFoods().get(position);
-        holder.name.setText(holder.food.getName());;
+        Log.d("test", "clicked " + ": test");
+        holder.item = SF.s.getCart().get(position);
+        holder.name.setText(holder.item.getName());
+        holder.counter.setText(COUNTER_VALUE_WHEN_ADDED);
+
     }
 
     @Override
-    public int getItemCount() {return SF.s.getFoods().size();}
+    public int getItemCount() {return SF.s.getCart().size();}
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
         Button buttonMinus;
+        Button buttonPlus;
         TextView counter;
 
-        MenuItem food;
+        MenuItem item;
         int position;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -53,18 +58,31 @@ public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.My
             // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
+            buttonPlus = itemView.findViewById(R.id.button_add);
             buttonMinus = itemView.findViewById(R.id.button_remove);
             counter = itemView.findViewById(R.id.foodCount);
+
+            buttonPlus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("test", "clicked " + getAdapterPosition());
+                    item.incrementCounter();
+                    counter.setText(String.valueOf(item.getCount()));
+                }
+            });
 
             buttonMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    food.decrementCounter();
-                    counter.setText(String.valueOf(food.getCount()));
+                    if(item.getCount() > 1) {
+                        item.decrementCounter();
+                    } else {
+                        SF.s.removeFromCart(getAdapterPosition());
+                    }
+                    counter.setText(String.valueOf(item.getCount()));
                 }
             });
         }
     }
 }
-*/

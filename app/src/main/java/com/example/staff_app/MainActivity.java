@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String[] paths = {"1", "2", "3", "4", "5", "6", "7",};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         SF.s.customAdapterDrink = new DrinkCustomAdapter(MainActivity.this);
         recyclerDrink.setAdapter(SF.s.customAdapterDrink);
         recyclerDrink.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        // Cart
+        SF.s.customAdapterCart = new CartCustomAdapter(MainActivity.this);
+        recyclerCart.setAdapter(SF.s.customAdapterCart);
+        recyclerCart.setLayoutManager(new LinearLayoutManager(MainActivity.this));
 
         //Kod för att hämta bordsnummer från FrontPage
         Bundle extras = getIntent().getExtras();

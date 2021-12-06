@@ -72,6 +72,7 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
                 }
             });
 
+            /*
             buttonMinus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -81,6 +82,7 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
                     counter.setText(String.valueOf(drink.getCount()));
                 }
             });
+            */
         }
     }
 }

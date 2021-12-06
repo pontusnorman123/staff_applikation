@@ -66,25 +66,41 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerDrink"
-        android:layout_width="500dp"
-        android:layout_height="537dp"
-        android:layout_marginStart="524dp"
-        android:layout_marginTop="112dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
-    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFood"
-        android:layout_width="500dp"
+        android:layout_width="0dp"
         android:layout_height="537dp"
-
         android:layout_marginStart="1dp"
         android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toStartOf="@id/recyclerDrink"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelFood" />
+        app:layout_constraintTop_toBottomOf="@+id/labelFood"
+        app:layout_constraintWidth_percent="0.30"
+        app:layout_constraintWidth_default="percent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDrink"
+        android:layout_width="0dp"
+        android:layout_height="537dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/recyclerFood"
+        app:layout_constraintEnd_toStartOf="@id/recyclerViewCart"
+        app:layout_constraintTop_toBottomOf="@id/labelDrinks"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.30"
+        app:layout_constraintWidth_default="percent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCart"
+        android:layout_width="0dp"
+        android:layout_height="788dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toEndOf="@+id/recyclerDrink"
+        app:layout_constraintTop_toBottomOf="@+id/labelCart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.30"
+        app:layout_constraintWidth_default="percent"/>
 
     <TextView
         android:id="@+id/tableNr"
@@ -98,13 +114,6 @@
         app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewCart"
-        android:layout_width="251dp"
-        android:layout_height="788dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintStart_toEndOf="@+id/recyclerDrink"
-        app:layout_constraintTop_toBottomOf="@+id/labelCart" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
