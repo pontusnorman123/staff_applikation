@@ -5,6 +5,7 @@ public class MenuItem {
     private final String name;
     private int counter = 0;
     private int price;
+    //private int dishID;
 
     public MenuItem(String name){
         this.name = name;
@@ -14,6 +15,7 @@ public class MenuItem {
         this.name = m.name;
         this.counter = m.counter;
         this.price = m.price;
+        //this.id = m.id;
     }
     public void incrementCounter(){
         counter++;

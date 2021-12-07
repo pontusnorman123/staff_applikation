@@ -15,6 +15,8 @@ public class SF {
     private ArrayList<MenuItem> drinks;
     private ArrayList<MenuItem> cart;
 
+    //private ArrayList<RestaurangOrder> order;
+
     public ArrayList<MenuItem> getFoods() {return foods;}
     public ArrayList<MenuItem> getDrinks() {return drinks;}
     public ArrayList<MenuItem> getCart(){return cart;}
@@ -70,6 +72,8 @@ public class SF {
         return cart.contains(c);
 
     }
+
+
 
 
 }

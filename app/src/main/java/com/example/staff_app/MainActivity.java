@@ -4,8 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,5 +65,9 @@ public class MainActivity extends AppCompatActivity {
             tableNr.setText(value);
         }
     }
+
+    public void sendOrder(View view) {
+        System.out.println(SF.s.getCart().get(0).getName());
+        System.out.println("TEST");
+    }
 }
-//    public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {}
