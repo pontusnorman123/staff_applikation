@@ -50,7 +50,10 @@ public class SF {
 
     public void removeFromCart(int pos) {
         // när det finns 0 kvar, kallar vi för att radera från SF
+        if(pos < 0)
+            return;
         cart.remove(pos);
+
         customAdapterCart.notifyItemRemoved(pos);
     }
 
@@ -64,7 +67,7 @@ public class SF {
     }
 
     public boolean searchIfExistInCart(MenuItem c){
-        return cart.contains(c.getName());
+        return cart.contains(c);
 
     }
 

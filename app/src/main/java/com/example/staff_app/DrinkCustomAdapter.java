@@ -66,9 +66,11 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    drink.incrementCounter();
-                    //SF.s.incrementFoodAtPosition(getAdapterPosition());
-                    //counter.setText(String.valueOf(drink.getCount()));
+
+                    //counter.setText(String.valueOf(food.getCount()));
+                    if(drink.getCount() == 0) {
+                        SF.s.addToCart(new MenuItem(drink));
+                    }
                 }
             });
 
