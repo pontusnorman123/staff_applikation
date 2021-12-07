@@ -26,7 +26,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     @Override
     public FoodCustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View view = inflater.inflate(R.layout.order_layout_row, parent, false);
+        View view = inflater.inflate(R.layout.food_layout_row, parent, false);
         return new MyViewHolder(view);
     }
 
@@ -43,8 +43,8 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
 
         TextView name;
         Button buttonPlus;
-        Button buttonMinus;
-        TextView counter;
+        //Button buttonMinus;
+        //TextView counter;
 
         MenuItem food;
         int position;
@@ -55,8 +55,8 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
             buttonPlus = itemView.findViewById(R.id.button_add);
-            buttonMinus = itemView.findViewById(R.id.button_remove);
-            counter = itemView.findViewById(R.id.foodCount);
+            //buttonMinus = itemView.findViewById(R.id.button_remove);
+            //counter = itemView.findViewById(R.id.foodCount);
 
             // set values of views
 //           name.setText(food.getName());
@@ -66,7 +66,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                 @Override
                 public void onClick(View v) {
                     Log.d("test", "clicked " + getAdapterPosition());
-                    counter.setText(String.valueOf(food.getCount()));
+                    //counter.setText(String.valueOf(food.getCount()));
                     if(food.getCount() == 0) {
                         SF.s.addToCart(new MenuItem(food));
                     }

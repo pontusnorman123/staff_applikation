@@ -4,6 +4,7 @@ package com.example.staff_app;
 
 import android.content.Context;
 import android.util.Log;
+import android.util.TimeUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.MyViewHolder> {
@@ -77,7 +80,8 @@ public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.My
                     Log.d("test", "clicked " + getAdapterPosition());
                     if(item.getCount() > 1) {
                         item.decrementCounter();
-                    } else {
+                    }
+                    else {
                         SF.s.removeFromCart(getAdapterPosition());
                     }
                     counter.setText(String.valueOf(item.getCount()));

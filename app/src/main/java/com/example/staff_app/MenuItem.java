@@ -4,6 +4,7 @@ public class MenuItem {
 
     private final String name;
     private int counter = 0;
+    private int price;
 
     public MenuItem(String name){
         this.name = name;
@@ -12,8 +13,8 @@ public class MenuItem {
     {
         this.name = m.name;
         this.counter = m.counter;
+        this.price = m.price;
     }
-
     public void incrementCounter(){
         counter++;
     }

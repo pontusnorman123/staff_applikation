@@ -34,11 +34,18 @@ public class SF {
     }
 
     public void addToCart(MenuItem c) {
-        c.setCount(1);
-       boolean lyckades = cart.add(c);
-        Log.d("test", "clicked " + lyckades);
-        customAdapterCart.notifyItemInserted(cart.size()-1);
-        //customAdapterCart.notifyDataSetChanged();
+        if(searchIfExistInCart(c)){
+            c.setCount(+1);
+            System.out.println("Account found");
+        }
+        else{
+            System.out.println("Accouasdadasdasnt found");
+            boolean lyckades = cart.add(c);
+            c.setCount(1);
+            Log.d("test", "clicked " + lyckades);
+            customAdapterCart.notifyItemInserted(cart.size()-1);
+            //customAdapterCart.notifyDataSetChanged();
+        }
     }
 
     public void removeFromCart(int pos) {
@@ -54,6 +61,11 @@ public class SF {
 
     private SF() {
         //resetAll();
+    }
+
+    public boolean searchIfExistInCart(MenuItem c){
+        return cart.contains(c.getName());
+
     }
 
 
