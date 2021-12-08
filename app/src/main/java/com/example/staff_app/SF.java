@@ -11,9 +11,9 @@ public class SF {
     public FoodCustomAdapter customAdapterFood;
     public DrinkCustomAdapter customAdapterDrink;
     public CartCustomAdapter customAdapterCart;
-    private ArrayList<MenuItem> foods;
-    private ArrayList<MenuItem> drinks;
-    private ArrayList<MenuItem> cart;
+    private ArrayList<MenuItem> foods = new ArrayList<>();
+    private ArrayList<MenuItem> drinks = new ArrayList<>();
+    private ArrayList<MenuItem> cart =new ArrayList<>();
 
     //private ArrayList<RestaurangOrder> order;
 

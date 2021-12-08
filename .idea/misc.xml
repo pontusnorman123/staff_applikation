@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Skola/Java/staff_app/app/src/main/res/layout-land/activity_main.xml" value="0.17" />
-        <entry key="..\:/Skola/Java/staff_app/app/src/main/res/layout/order_layout_row.xml" value="0.12280701754385964" />
         <entry key="..\:/Skolarbeten/Java/staff_app/app/src/main/res/layout/activity_main.xml" value="0.29528985507246375" />
         <entry key="..\:/Users/Max/AndroidStudioProjects/staff_applikation/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11722222222222223" />
         <entry key="..\:/Users/Max/AndroidStudioProjects/staff_applikation/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11722222222222223" />
@@ -17,13 +15,20 @@
         <entry key="..\:/Users/Oliver/StudioProjects/staff_applikation/app/src/main/res/layout/activity_front_page.xml" value="0.483695652173913" />
         <entry key="..\:/Users/Oliver/StudioProjects/staff_applikation/app/src/main/res/layout/activity_main.xml" value="0.483695652173913" />
         <entry key="..\:/Users/Oliver/StudioProjects/staff_applikation/app/src/main/res/layout/order_layout_row.xml" value="0.483695652173913" />
+        <entry key="..\:/Users/WolfgangM/AndroidStudioProjects/staff_applikation/app/src/main/res/layout-land/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/WolfgangM/AndroidStudioProjects/staff_applikation/app/src/main/res/layout/activity_main.xml" value="0.1621376811594203" />
+        <entry key="..\:/Users/hassa/StudioProjects/staff_applikation/app/src/main/res/layout-land/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/hassa/StudioProjects/staff_applikation/app/src/main/res/layout/activity_front_page.xml" value="0.25" />
+        <entry key="..\:/Users/hassa/StudioProjects/staff_applikation/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/hassa/StudioProjects/staff_applikation/app/src/main/res/layout/food_layout_row.xml" value="0.22" />
+        <entry key="..\:/Users/hassa/StudioProjects/staff_applikation/app/src/main/res/layout/order_layout_row.xml" value="0.16" />
         <entry key="app/src/main/res/layout-land/activity_main.xml" value="0.1335978835978836" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1213768115942029" />
         <entry key="app/src/main/res/layout/order_layout_row.xml" value="0.23822463768115942" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

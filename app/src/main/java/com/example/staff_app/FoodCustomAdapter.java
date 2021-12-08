@@ -33,7 +33,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     @Override
     public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
         holder.food = SF.s.getFoods().get(position);
-        holder.name.setText(holder.food.getName());;
+        holder.name.setText(holder.food.getName());
     }
 
     @Override

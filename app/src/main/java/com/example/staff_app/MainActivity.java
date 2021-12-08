@@ -4,13 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+
+import DatabaseCode.Resturangorder;
+import DatabaseCode.XmlReaderTask;
+import DatabaseCode.XmlResturangOrderWriterTask;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,17 +24,22 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Button sendButton = findViewById(R.id.sendOrderButton);
         // set menu items (from dish in DB)
-        SF.s.resetAll();
-        MenuItem food = new MenuItem("Fiskpinnar. Potatis");
+        //SF.s.resetAll();
+        /*MenuItem food = new MenuItem("Fiskpinnar. Potatis");
         MenuItem food2 = new MenuItem("Ungsbakad Lax. Potatis");
         SF.s.addFood(food);
         SF.s.addFood(food2);
 
         SF.s.addFood(new MenuItem("McDonald's from next door"));
         SF.s.addFood(new MenuItem("kyckling sushi"));
-        SF.s.addFood(new MenuItem("1 raw potato"));
+        SF.s.addFood(new MenuItem("1 raw potato"));*/
+
+        XmlReaderTask xmlReaderTask = new XmlReaderTask();
+        xmlReaderTask.menuitemTable = null;
+        xmlReaderTask.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
+        xmlReaderTask.execute();
 
         MenuItem drink = new MenuItem("Coca Cola");
         MenuItem drink2 = new MenuItem("Fanta");
@@ -64,10 +75,39 @@ public class MainActivity extends AppCompatActivity {
             TextView tableNr = (TextView) findViewById(R.id.tableNr);
             tableNr.setText(value);
         }
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<MenuItem> items = SF.s.getCart();
+                XmlResturangOrderWriterTask xmlWriterTask = new XmlResturangOrderWriterTask();
+                xmlWriterTask.resturangorders.resturangorderTable = new ArrayList<Resturangorder>();
+                for(int i = 0; i < items.size(); i++){
+                    //xmlWriterTask.tableList = null;
+                    Resturangorder element = new Resturangorder();
+                    element.id = i;
+                    element.tablenr = Integer.valueOf(extras.getString("key"));
+                    Long tsLong = System.currentTimeMillis();
+                    String ts = tsLong.toString();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                    String dateString = formatter.format(new Date(Long.parseLong(ts)));
+                    element.timestamp =dateString;
+                    element.notes = "Nothing to add";
+                    element.dishid = items.get(i).getDishID();
+                    xmlWriterTask.resturangorders.resturangorderTable.add(element);
+
+                }
+                xmlWriterTask.handler = new Handler();
+                xmlWriterTask.execute(xmlWriterTask.resturangorders);
+                SF.s.resetAll();
+            }
+        });
+
     }
 
-    public void sendOrder(View view) {
+
+    /*public void sendOrder(View view) {
         System.out.println(SF.s.getCart().get(0).getName());
         System.out.println("TEST");
-    }
+    }*/
 }
