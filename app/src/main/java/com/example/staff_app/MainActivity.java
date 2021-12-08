@@ -82,7 +82,15 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<MenuItem> items = SF.s.getCart();
                 XmlResturangOrderWriterTask xmlWriterTask = new XmlResturangOrderWriterTask();
                 xmlWriterTask.resturangorders.resturangorderTable = new ArrayList<Resturangorder>();
-                for(int i = 0; i < items.size(); i++){
+                int rSize = xmlReaderTask.resturangTable.resturangorderTable.size();
+                int lastID=1;
+                for (int i = 0; i<rSize; i++){
+                    if(xmlReaderTask.resturangTable.resturangorderTable.get(i).id > lastID)
+                        lastID = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
+                }
+                lastID++;
+                int loopNr = (items.size())+lastID;
+                for(int i = lastID; i < loopNr; i++){
                     //xmlWriterTask.tableList = null;
                     Resturangorder element = new Resturangorder();
                     element.id = i;
@@ -93,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     String dateString = formatter.format(new Date(Long.parseLong(ts)));
                     element.timestamp =dateString;
                     element.notes = "Nothing to add";
-                    element.dishid = items.get(i).getDishID();
+                    element.dishid = items.get(i-lastID).getDishID();
                     xmlWriterTask.resturangorders.resturangorderTable.add(element);
 
                 }
