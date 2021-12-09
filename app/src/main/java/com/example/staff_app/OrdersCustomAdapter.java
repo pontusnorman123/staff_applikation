@@ -23,18 +23,10 @@ import java.util.ArrayList;
             this.context = context;
         }
 
-//    public void addAll(ArrayList<Order> orders) {
-//        this.orders.addAll(orders);
-//    }
-//
-//    public int add(Order order) {
-//        return this.orders.add(order);
-//    }
 
         //  add function `UpDateData` here and call `NotifyDataSetChanged`
         public void upDateData(ArrayList<Order> orders) {
             SO.s.orders.addAll(orders);
-            //notifyDataSetChanged();
             notifyItemRangeInserted(SO.s.orders.size()-orders.size(), SO.s.orders.size());
         }
 
@@ -49,9 +41,8 @@ import java.util.ArrayList;
         @Override
         public void onBindViewHolder(@NonNull OrdersCustomAdapter.MyViewHolder holder, int position) {
             Order order = SO.s.orders.get(position);
-            holder.tableNumber.setText(String.valueOf(order.getTablePrio()));
+            holder.tableNumber.setText(String.valueOf(order.getTableNumber()));
             holder.name.setText(String.valueOf(order.getName()));
-            holder.time.setText(String.valueOf(order.getTime()));
             holder.finished_status.setText(holder.BUTTON_NOT_DONE_TEXT);
             holder.order = order;
         }
@@ -64,8 +55,8 @@ import java.util.ArrayList;
         public static class MyViewHolder extends RecyclerView.ViewHolder {
 
             // constants
-            final String BUTTON_DONE_TEXT = "\u2713 done";
-            final String BUTTON_NOT_DONE_TEXT = "not done";
+            final String BUTTON_DONE_TEXT = "\u2713 Delivered";
+            final String BUTTON_NOT_DONE_TEXT = "Not delivered";
 
             // internal variables
             TextView tableNumber, name, time;
@@ -87,21 +78,15 @@ import java.util.ArrayList;
                     public void onClick(View v) {
 
                         //Order temp = SO.s.orders.get(getAdapterPosition());
-                        if(order.isDone()) {
-                            order.setDoneAs(false);
+                        if(order.isDelivered()) {
+                            order.setDeliveredAs(false);
                             finished_status.setText(BUTTON_NOT_DONE_TEXT);
                         } else {
-                            order.setDoneAs(true);
+                            order.setDeliveredAs(true);
+                            SO.s.removeOrder(getAdapterPosition());
                             finished_status.setText(BUTTON_DONE_TEXT);
                         }
 
-                        //SO.s.addOrders(new ArrayList<Order>());
-
-                        //get(getAdapterPosition()).setTime(order.getTime()+1);
-                        // create new identical order
-                        //ArrayList<Order> orders = new ArrayList<Order>();
-                        //orders.add(order);
-                        //SO.s.addOrders(orders);
                     }
                 });
             }
