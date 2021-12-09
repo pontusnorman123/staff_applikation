@@ -26,20 +26,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button sendButton = findViewById(R.id.sendOrderButton);
         // set menu items (from dish in DB)
-        //SF.s.resetAll();
-        /*MenuItem food = new MenuItem("Fiskpinnar. Potatis");
+        SF.s.resetAll();
+        MenuItem food = new MenuItem("Fiskpinnar. Potatis");
         MenuItem food2 = new MenuItem("Ungsbakad Lax. Potatis");
         SF.s.addFood(food);
         SF.s.addFood(food2);
 
-        SF.s.addFood(new MenuItem("McDonald's from next door"));
-        SF.s.addFood(new MenuItem("kyckling sushi"));
-        SF.s.addFood(new MenuItem("1 raw potato"));*/
+        //SF.s.addFood(new MenuItem("McDonald's from next door"));
+        //SF.s.addFood(new MenuItem("kyckling sushi"));
+        //SF.s.addFood(new MenuItem("1 raw potato"));
 
-        XmlReaderTask xmlReaderTask = new XmlReaderTask();
-        xmlReaderTask.menuitemTable = null;
-        xmlReaderTask.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
-        xmlReaderTask.execute();
+        //XmlReaderTask xmlReaderTask = new XmlReaderTask();
+        //xmlReaderTask.menuitemTable = null;
+        //xmlReaderTask.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
+        //xmlReaderTask.execute();
 
         MenuItem drink = new MenuItem("Coca Cola");
         MenuItem drink2 = new MenuItem("Fanta");
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             tableNr.setText(value);
         }
 
-        sendButton.setOnClickListener(new View.OnClickListener() {
+        /*sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<MenuItem> items = SF.s.getCart();
@@ -109,7 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 xmlWriterTask.execute(xmlWriterTask.resturangorders);
                 SF.s.resetAll();
             }
-        });
+        });*/
+
 
     }
 

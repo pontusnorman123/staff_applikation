@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Staff_app">
         <activity
-            android:name=".undeliveredOrders"
+            android:name=".UndeliveredOrders"
             android:exported="false" />
         <activity
             android:name=".FrontPageActivity"

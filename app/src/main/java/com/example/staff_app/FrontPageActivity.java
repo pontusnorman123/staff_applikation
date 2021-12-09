@@ -14,6 +14,8 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
+        Button undeliveredOrdersButton = (Button) findViewById(R.id.undeliveredOrdersButton);
+
         final Button tableOneButton = (Button)findViewById(R.id.tableOneButton);
         tableOneButton.setOnClickListener(this);
         final Button tableTwoButton = (Button)findViewById(R.id.tableTwoButton);
@@ -29,7 +31,9 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         tableSixButton.setOnClickListener(this);
         final Button tableSevenButton = (Button)findViewById(R.id.tableSevenButton);
         tableSevenButton.setOnClickListener(this);
+
     }
+
 
     @Override
     public void onClick(View v) {
@@ -73,5 +77,11 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         startActivity(i);
 
 
+    }
+
+
+    public void goToUndeliveredOrders(View view) {
+        Intent i = new Intent(getApplicationContext(), UndeliveredOrders.class);
+        startActivity(i);
     }
 }
