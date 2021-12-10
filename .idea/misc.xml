@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Skola/Java/staff_app/app/src/main/res/layout/activity_front_page.xml" value="0.1" />
+        <entry key="..\:/Skola/Java/staff_app/app/src/main/res/layout/activity_undelivered_orders.xml" value="0.1" />
+        <entry key="..\:/Skola/Java/staff_app/app/src/main/res/layout/undelivered_orders_row.xml" value="0.1" />
         <entry key="..\:/Skolarbeten/Java/staff_app/app/src/main/res/layout/activity_main.xml" value="0.29528985507246375" />
         <entry key="..\:/Skolarbeten/Java/staff_app/app/src/main/res/layout/activity_undelivered_orders.xml" value="0.26145833333333335" />
         <entry key="..\:/Skolarbeten/Java/staff_app/app/src/main/res/layout/order_layout_row.xml" value="0.26145833333333335" />

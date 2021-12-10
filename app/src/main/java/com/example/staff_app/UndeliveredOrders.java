@@ -11,10 +11,6 @@ import java.util.ArrayList;
 
 public class UndeliveredOrders extends AppCompatActivity {
 
-    void addNew(Order order) {
-        SO.s.orders.add(order);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,12 +18,13 @@ public class UndeliveredOrders extends AppCompatActivity {
 
 
         // FROM HARDCODED TEST ARRAY
+        SO.s.resetAll();
         ArrayList<Order> test_orders = new ArrayList<Order>(5);
-        test_orders.add(new Order(1, "fish", 20));
-        test_orders.add(new Order(3, "potato", 5));
-        test_orders.add(new Order(5, "salad", 5));
-        test_orders.add(new Order(3, "McDonald's from next door", 10));
-        test_orders.add(new Order(2, "chicken sushi", 10));
+        test_orders.add(new Order(1));
+        test_orders.add(new Order(3));
+        test_orders.add(new Order(5));
+        test_orders.add(new Order(3));
+        test_orders.add(new Order(2));
 
         RecyclerView recycler = findViewById(R.id.recycler);
 

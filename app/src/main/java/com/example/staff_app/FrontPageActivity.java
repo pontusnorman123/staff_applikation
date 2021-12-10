@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class FrontPageActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -14,13 +15,23 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
+
+        //TEST
+        SO.s.addOrder(new Order(1));
+
+
+        //ANTAL UndeliveredOrders
+        int numberOfOrders = SO.s.orders.size();
+        TextView numberOfOrdersTXT = (TextView)findViewById(R.id.nrOfOrdersTXT);
+        numberOfOrdersTXT.setText(("" + numberOfOrders));
+
+        //KNAPPAR
         Button undeliveredOrdersButton = (Button) findViewById(R.id.undeliveredOrdersButton);
 
         final Button tableOneButton = (Button)findViewById(R.id.tableOneButton);
         tableOneButton.setOnClickListener(this);
         final Button tableTwoButton = (Button)findViewById(R.id.tableTwoButton);
         tableTwoButton.setOnClickListener(this);
-
         final Button tableThreeButton = (Button)findViewById(R.id.tableThreeButton);
         tableThreeButton.setOnClickListener(this);
         final Button tableFourButton = (Button)findViewById(R.id.tableFourButton);

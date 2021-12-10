@@ -118,5 +118,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tableSevenButton" />
 
+    <TextView
+        android:id="@+id/nrOfOrdersTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:background="#FFC0CB"
+        android:gravity="center"
+        app:layout_constraintStart_toEndOf="@id/undeliveredOrdersButton"
+        app:layout_constraintTop_toBottomOf="@id/tableSevenButton"
+        android:text="ERROR"
+        android:textSize="50dp"
+        android:fontFamily="sans-serif"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -42,7 +42,6 @@ import java.util.ArrayList;
         public void onBindViewHolder(@NonNull OrdersCustomAdapter.MyViewHolder holder, int position) {
             Order order = SO.s.orders.get(position);
             holder.tableNumber.setText(String.valueOf(order.getTableNumber()));
-            holder.name.setText(String.valueOf(order.getName()));
             holder.finished_status.setText(holder.BUTTON_NOT_DONE_TEXT);
             holder.order = order;
         }
@@ -59,7 +58,7 @@ import java.util.ArrayList;
             final String BUTTON_NOT_DONE_TEXT = "Not delivered";
 
             // internal variables
-            TextView tableNumber, name, time;
+            TextView tableNumber;
             Button finished_status;
             Order order;
 
@@ -67,8 +66,6 @@ import java.util.ArrayList;
 
                 super(itemView);
                 tableNumber = itemView.findViewById(R.id.tableNumber);
-                name = itemView.findViewById(R.id.name);
-                time = itemView.findViewById(R.id.time);
                 //finished_status = itemView.findViewById(R.id.finished_status);
 
                 finished_status = itemView.findViewById(R.id.finished_status);

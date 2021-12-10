@@ -12,6 +12,11 @@ public class SO {
 
     ArrayList<Order> orders = new ArrayList<>();
 
+    public void resetAll() {
+        orders = new ArrayList<>();
+
+    }
+
 
     public void addOrders(ArrayList<Order> o) {
         orders.addAll(o);
@@ -19,8 +24,9 @@ public class SO {
 
     }
 
-    public void addOrder() {
-        customAdapter.notifyDataSetChanged();
+    public void addOrder(Order o) {
+        orders.add(o);
+
     }
 
     public void removeOrder(int pos) {

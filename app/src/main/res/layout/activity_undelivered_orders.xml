@@ -12,6 +12,7 @@
         android:layout_height="33dp"
         android:layout_marginStart="0dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="900dp"
         android:fontFamily="sans-serif"
         android:text="Bordsnummer"
         android:textAllCaps="true"
@@ -19,51 +20,12 @@
         android:textSize="24sp"
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/dishes"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         app:layout_constraintWidth_percent="0.25"
         app:layout_constraintWidth_default="percent"/>
 
-
-    <TextView
-        android:id="@+id/dishes"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
-        android:text="Rätten"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toStartOf="@id/cookTime"
-        app:layout_constraintStart_toEndOf="@id/tableNo"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:layout_constraintWidth_percent="0.25"
-        app:layout_constraintWidth_default="percent"/>
-
-
-    <TextView
-        android:id="@+id/cookTime"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
-        android:text="Tillagningstiden"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/dishes"
-
-        app:layout_constraintWidth_percent="0.25"
-        app:layout_constraintWidth_default="percent"/>
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -74,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cookTime"
+        app:layout_constraintTop_toBottomOf="@id/tableNo"
         app:layout_constraintVertical_bias="0.0" />
 
 
