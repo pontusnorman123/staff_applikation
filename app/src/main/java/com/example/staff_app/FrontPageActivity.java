@@ -4,11 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class FrontPageActivity extends AppCompatActivity implements View.OnClickListener{
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +18,11 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_front_page);
 
         //TEST
-        SO.s.addOrder(new Order(1));
+        //SO.s.addOrder(new Order(1));
 
         //ANTAL UndeliveredOrders
-        int numberOfOrders = SO.s.orders.size();
-        TextView numberOfOrdersTXT = (TextView)findViewById(R.id.nrOfOrdersTXT);
-        numberOfOrdersTXT.setText(("" + numberOfOrders));
+        SO.s.numberOfOrders = (TextView)findViewById(R.id.nrOfOrdersTXT);
+        SO.s.updateOrderNumberInFrontPage();
 
         //KNAPPAR
         Button undeliveredOrdersButton = (Button) findViewById(R.id.undeliveredOrdersButton);
@@ -41,6 +42,23 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         final Button tableSevenButton = (Button)findViewById(R.id.tableSevenButton);
         tableSevenButton.setOnClickListener(this);
 
+        // start database loading...
+        int MILLISECONDS_BETWEEN_UPDATES = 5000; // 5 seconds
+        // Handler is similar to async
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                //FROM DATABASE
+                //SO.s.databaseLoad();
+
+                //FROM TESTARRAY
+                SO.s.fakeLoad();
+
+                handler.postDelayed(this, MILLISECONDS_BETWEEN_UPDATES);
+            }
+        }, MILLISECONDS_BETWEEN_UPDATES);
     }
 
 
