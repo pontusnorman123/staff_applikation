@@ -17,7 +17,6 @@ public class SO {
 
     }
 
-
     public void addOrders(ArrayList<Order> o) {
         orders.addAll(o);
         customAdapter.notifyDataSetChanged();

@@ -15,10 +15,8 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
-
         //TEST
         SO.s.addOrder(new Order(1));
-
 
         //ANTAL UndeliveredOrders
         int numberOfOrders = SO.s.orders.size();

@@ -15,6 +15,9 @@
             android:name=".UndeliveredOrders"
             android:exported="false" />
         <activity
+            android:name=".Bookings"
+            android:exported="false" />
+        <activity
             android:name=".FrontPageActivity"
             android:exported="true">
             <intent-filter>
