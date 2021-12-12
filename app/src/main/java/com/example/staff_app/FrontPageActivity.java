@@ -95,4 +95,9 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         Intent i = new Intent(getApplicationContext(), UndeliveredOrders.class);
         startActivity(i);
     }
+
+    public void goToBooking(View view){
+        Intent i = new Intent(getApplicationContext(), Bookings.class);
+        startActivity(i);
+    }
 }
