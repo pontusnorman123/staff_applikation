@@ -110,11 +110,12 @@
         android:id="@+id/undeliveredOrdersButton"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="72dp"
         android:layout_marginEnd="103dp"
         android:onClick="goToUndeliveredOrders"
         android:text="Färdiga Maträtter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tableSevenButton" />
 
@@ -131,6 +132,20 @@
         android:text="ERROR"
         android:textSize="50dp"
         android:fontFamily="sans-serif"/>
+
+    <Button
+        android:id="@+id/BookingButton"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="440dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="540dp"
+        android:onClick=""
+        android:text="Bokningar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/undeliveredOrdersButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
