@@ -6,6 +6,7 @@ public class MenuItem {
     private int counter = 0;
     private int price;
     private int dishID;
+    private String notes = "";
 
     public MenuItem(String name){
         this.name = name;
@@ -31,9 +32,11 @@ public class MenuItem {
         if(counter > 0) { counter--; }
     }
     public void setCount(int count){this.counter = count;}
+    public void setNotes(String notes) {this.notes = notes;}
 
 
     public String getName() {return name;}
     public int getCount(){return counter;}
     public int getDishID(){return dishID;}
+    public String getNotes() {return notes; }
 }
