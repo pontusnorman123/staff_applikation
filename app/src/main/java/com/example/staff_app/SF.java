@@ -11,6 +11,9 @@ public class SF {
     public FoodCustomAdapter customAdapterFood;
     public DrinkCustomAdapter customAdapterDrink;
     public CartCustomAdapter customAdapterCart;
+    public StartersCustomAdapter customAdapterStarters;
+
+    private ArrayList<MenuItem> starters = new ArrayList<>();
     private ArrayList<MenuItem> foods = new ArrayList<>();
     private ArrayList<MenuItem> drinks = new ArrayList<>();
     private ArrayList<MenuItem> cart =new ArrayList<>();
@@ -20,12 +23,15 @@ public class SF {
     public ArrayList<MenuItem> getFoods() {return foods;}
     public ArrayList<MenuItem> getDrinks() {return drinks;}
     public ArrayList<MenuItem> getCart(){return cart;}
+    public ArrayList<MenuItem> getStarter() { return starters; }
 
     public void resetAll() {
         foods = new ArrayList<>();
         drinks = new ArrayList<>();
         cart = new ArrayList<>();
     }
+
+    public void addStarter(MenuItem f) { starters.add(f); }
 
     public void addFood(MenuItem f) {
         foods.add(f);

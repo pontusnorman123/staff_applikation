@@ -57,7 +57,22 @@
         android:layout_marginStart="96dp"
         android:layout_marginTop="80dp"
         android:fontFamily="sans-serif"
-        android:text="Rätter"
+        android:text="Huvudrätter"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerStarters" />
+
+    <TextView
+        android:id="@+id/labelStarters"
+        android:layout_width="190dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif"
+        android:text="Förrätter"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
@@ -65,10 +80,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerStarters"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toStartOf="@id/recyclerDrink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelStarters"
+        app:layout_constraintWidth_percent="0.30"
+        app:layout_constraintWidth_default="percent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFood"
         android:layout_width="0dp"
-        android:layout_height="537dp"
+        android:layout_height="300dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="2dp"
         app:layout_constraintEnd_toStartOf="@id/recyclerDrink"

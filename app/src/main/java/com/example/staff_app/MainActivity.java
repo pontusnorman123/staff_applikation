@@ -33,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
         SF.s.addFood(food);
         SF.s.addFood(food2);
 
+
+        SF.s.addStarter(new MenuItem("Toast Skagen"));
+        SF.s.addStarter(new MenuItem("Tomatsoppa"));
+        SF.s.addStarter(new MenuItem("Linssoppa"));
+
+
         //SF.s.addFood(new MenuItem("McDonald's from next door"));
         //SF.s.addFood(new MenuItem("kyckling sushi"));
         //SF.s.addFood(new MenuItem("1 raw potato"));
@@ -49,11 +55,17 @@ public class MainActivity extends AppCompatActivity {
 
         //private int count = 0;
 
+        RecyclerView recyclerStarters = findViewById(R.id.recyclerStarters);
         RecyclerView recyclerFood = findViewById(R.id.recyclerFood);
         RecyclerView recyclerDrink = findViewById(R.id.recyclerDrink);
         RecyclerView recyclerCart = findViewById(R.id.recyclerViewCart);
 
-        // Foods
+        //Starters
+        SF.s.customAdapterStarters = new StartersCustomAdapter(MainActivity.this);
+        recyclerStarters.setAdapter(SF.s.customAdapterStarters);
+        recyclerStarters.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+        // Main courses
         SF.s.customAdapterFood = new FoodCustomAdapter(MainActivity.this);
         recyclerFood.setAdapter(SF.s.customAdapterFood);
         recyclerFood.setLayoutManager(new LinearLayoutManager(MainActivity.this));

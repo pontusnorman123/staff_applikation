@@ -11,39 +11,37 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
-// fills Recycler view with myViewHolders(which is the model of order_row_layout)
-
-public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.MyViewHolder> {
+public class StartersCustomAdapter extends RecyclerView.Adapter<StartersCustomAdapter.MyViewHolder> {
 
     Context context;
 
-    FoodCustomAdapter(Context context) {
+    StartersCustomAdapter(Context context) {
         this.context = context;
     }
 
     @NonNull
     @Override
-    public FoodCustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public StartersCustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.food_layout_row, parent, false);
-        return new MyViewHolder(view);
+        return new StartersCustomAdapter.MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
-        holder.food = SF.s.getFoods().get(position);
+    public void onBindViewHolder(@NonNull StartersCustomAdapter.MyViewHolder holder, int position) {
+        holder.food = SF.s.getStarter().get(position);
         holder.name.setText(holder.food.getName());
     }
 
     @Override
-    public int getItemCount() {return SF.s.getFoods().size();}
+    public int getItemCount() {return SF.s.getStarter().size();}
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
         Button buttonPlus;
-
+        //Button buttonMinus;
+        //TextView counter;
 
         MenuItem food;
         int position;
@@ -54,12 +52,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
             buttonPlus = itemView.findViewById(R.id.button_add);
-            //buttonMinus = itemView.findViewById(R.id.button_remove);
-            //counter = itemView.findViewById(R.id.foodCount);
 
-            // set values of views
-//           name.setText(food.getName());
-//            counter.setText(food.getCount());
 
             buttonPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -71,20 +64,6 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                     }
                 }
             });
-
-            /*
-            buttonMinus.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("test", "clicked " + getAdapterPosition());
-                    food.decrementCounter();
-                    counter.setText(String.valueOf(food.getCount()));
-                    if(food.getCount() == 0) {
-                        //ta bort från toppen
-                    }
-                }
-            });
-            */
 
         }
     }
