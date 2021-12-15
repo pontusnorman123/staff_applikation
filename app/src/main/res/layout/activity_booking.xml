@@ -8,6 +8,7 @@
     tools:context=".Bookings">
 
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal|center_vertical"
@@ -70,7 +71,7 @@
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="1"
                 android:textSize="18sp" />
@@ -78,7 +79,7 @@
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -87,7 +88,7 @@
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -96,7 +97,7 @@
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -111,7 +112,7 @@
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="2"
                 android:textSize="18sp" />
@@ -119,7 +120,7 @@
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -128,7 +129,7 @@
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -137,7 +138,7 @@
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -152,7 +153,7 @@
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="3"
                 android:textSize="18sp" />
@@ -160,7 +161,7 @@
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -169,7 +170,7 @@
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -178,7 +179,7 @@
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -193,7 +194,7 @@
             <TextView
                 android:id="@+id/textView18"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="4"
                 android:textSize="18sp" />
@@ -201,7 +202,7 @@
             <TextView
                 android:id="@+id/textView21"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -210,7 +211,7 @@
             <TextView
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -219,7 +220,7 @@
             <TextView
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -234,7 +235,7 @@
             <TextView
                 android:id="@+id/textView22"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="5"
                 android:textSize="18sp" />
@@ -242,7 +243,7 @@
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -251,7 +252,7 @@
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -260,7 +261,7 @@
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -275,7 +276,7 @@
             <TextView
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="6"
                 android:textSize="18sp" />
@@ -283,7 +284,7 @@
             <TextView
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -292,7 +293,7 @@
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -301,7 +302,7 @@
             <TextView
                 android:id="@+id/textView28"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -316,7 +317,7 @@
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:gravity="center"
                 android:text="7"
                 android:textSize="18sp" />
@@ -324,7 +325,7 @@
             <TextView
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -333,7 +334,7 @@
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="wrap_content"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
@@ -342,13 +343,24 @@
             <TextView
                 android:id="@+id/textView31"
                 android:layout_width="71dp"
-                android:layout_height="90dp"
+                android:layout_height="85dp"
                 android:contextClickable="false"
                 android:gravity="center"
                 android:text="-"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>
+
+    <Button
+        android:id="@+id/refreshButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Refresh booking list"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
