@@ -33,7 +33,9 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
     @Override
     public void onBindViewHolder(@NonNull DrinkCustomAdapter.MyViewHolder holder, int position) {
         holder.drink = SF.s.getDrinks().get(position);
-        holder.name.setText(holder.drink.getName());;
+        holder.name.setText(holder.drink.getName());
+        holder.price.setText(""+ holder.drink.getPrice() + ";-");
+
     }
 
     @Override
@@ -42,9 +44,9 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        TextView price;
         Button buttonPlus;
-        //Button buttonMinus;
-        //TextView counter;
+
 
         MenuItem drink;
         int position;
@@ -54,13 +56,9 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
             // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
+            price = itemView.findViewById(R.id.price);
             buttonPlus = itemView.findViewById(R.id.button_add);
-           // buttonMinus = itemView.findViewById(R.id.button_remove);
-            //counter = itemView.findViewById(R.id.foodCount);
 
-            // set values of views
-//           name.setText(food.getName());
-//            counter.setText(food.getCount());
 
             buttonPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -70,6 +68,7 @@ public class DrinkCustomAdapter extends RecyclerView.Adapter<DrinkCustomAdapter.
                     //counter.setText(String.valueOf(food.getCount()));
                     if(drink.getCount() == 0) {
                         SF.s.addToCart(new MenuItem(drink));
+                        SF.s.setSumCart();
                     }
                 }
             });

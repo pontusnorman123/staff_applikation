@@ -31,6 +31,7 @@ public class StartersCustomAdapter extends RecyclerView.Adapter<StartersCustomAd
     public void onBindViewHolder(@NonNull StartersCustomAdapter.MyViewHolder holder, int position) {
         holder.food = SF.s.getStarter().get(position);
         holder.name.setText(holder.food.getName());
+        holder.price.setText(holder.food.getPrice() + ";-");
     }
 
     @Override
@@ -39,9 +40,9 @@ public class StartersCustomAdapter extends RecyclerView.Adapter<StartersCustomAd
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        TextView price;
         Button buttonPlus;
-        //Button buttonMinus;
-        //TextView counter;
+
 
         MenuItem food;
         int position;
@@ -51,6 +52,7 @@ public class StartersCustomAdapter extends RecyclerView.Adapter<StartersCustomAd
             // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
+            price = itemView.findViewById(R.id.price);
             buttonPlus = itemView.findViewById(R.id.button_add);
 
 
@@ -61,6 +63,7 @@ public class StartersCustomAdapter extends RecyclerView.Adapter<StartersCustomAd
                     //counter.setText(String.valueOf(food.getCount()));
                     if(food.getCount() == 0) {
                         SF.s.addToCart(new MenuItem(food));
+                        SF.s.setSumCart();
                     }
                 }
             });

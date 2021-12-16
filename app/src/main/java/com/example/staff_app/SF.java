@@ -1,6 +1,7 @@
 package com.example.staff_app;
 
 import android.util.Log;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,8 @@ public class SF {
     private ArrayList<MenuItem> foods = new ArrayList<>();
     private ArrayList<MenuItem> drinks = new ArrayList<>();
     private ArrayList<MenuItem> cart =new ArrayList<>();
+
+    TextView sumTxt;
 
     //private ArrayList<RestaurangOrder> order;
 
@@ -79,7 +82,15 @@ public class SF {
 
     }
 
-
+    public void setSumCart()
+    {
+        int sum = 0;
+        for(MenuItem i: cart)
+        {
+            sum += i.getPrice();
+        }
+        sumTxt.setText("SUMMA: " + sum + " ;-");
+    }
 
 
 }

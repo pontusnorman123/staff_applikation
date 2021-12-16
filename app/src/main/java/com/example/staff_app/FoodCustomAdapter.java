@@ -34,6 +34,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     public void onBindViewHolder(@NonNull FoodCustomAdapter.MyViewHolder holder, int position) {
         holder.food = SF.s.getFoods().get(position);
         holder.name.setText(holder.food.getName());
+        holder.price.setText(""+ holder.food.getPrice() + ";-");
     }
 
     @Override
@@ -42,6 +43,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+        TextView price;
         Button buttonPlus;
 
 
@@ -53,13 +55,8 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
             // set view connections
             position = getAdapterPosition();
             name = itemView.findViewById(R.id.name);
+            price = itemView.findViewById(R.id.price);
             buttonPlus = itemView.findViewById(R.id.button_add);
-            //buttonMinus = itemView.findViewById(R.id.button_remove);
-            //counter = itemView.findViewById(R.id.foodCount);
-
-            // set values of views
-//           name.setText(food.getName());
-//            counter.setText(food.getCount());
 
             buttonPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -68,6 +65,7 @@ public class FoodCustomAdapter extends RecyclerView.Adapter<FoodCustomAdapter.My
                     //counter.setText(String.valueOf(food.getCount()));
                     if(food.getCount() == 0) {
                         SF.s.addToCart(new MenuItem(food));
+                        SF.s.setSumCart();
                     }
                 }
             });

@@ -8,8 +8,10 @@ public class MenuItem {
     private int dishID;
     private String notes = "";
 
-    public MenuItem(String name){
+    public MenuItem(String name, int price){
+
         this.name = name;
+        this.price = price;
     }
 
     public MenuItem(String name, int id, int price){
@@ -39,4 +41,5 @@ public class MenuItem {
     public int getCount(){return counter;}
     public int getDishID(){return dishID;}
     public String getNotes() {return notes; }
+    public int getPrice(){return price;}
 }

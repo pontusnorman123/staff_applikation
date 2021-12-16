@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
         Button sendButton = findViewById(R.id.sendOrderButton);
         // set menu items (from dish in DB)
         SF.s.resetAll();
-        MenuItem food = new MenuItem("Fiskpinnar. Potatis");
-        MenuItem food2 = new MenuItem("Ungsbakad Lax. Potatis");
+        MenuItem food = new MenuItem("Fiskpinnar. Potatis", 10);
+        MenuItem food2 = new MenuItem("Ungsbakad Lax. Potatis", 20);
         SF.s.addFood(food);
         SF.s.addFood(food2);
 
 
-        SF.s.addStarter(new MenuItem("Toast Skagen"));
-        SF.s.addStarter(new MenuItem("Tomatsoppa"));
-        SF.s.addStarter(new MenuItem("Linssoppa"));
+        SF.s.addStarter(new MenuItem("Toast Skagen", 5));
+        SF.s.addStarter(new MenuItem("Tomatsoppa", 1));
+        SF.s.addStarter(new MenuItem("Linssoppa", 2));
 
 
         //SF.s.addFood(new MenuItem("McDonald's from next door"));
@@ -48,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
         //xmlReaderTask.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
         //xmlReaderTask.execute();
 
-        MenuItem drink = new MenuItem("Coca Cola");
-        MenuItem drink2 = new MenuItem("Fanta");
+        MenuItem drink = new MenuItem("Coca Cola", 3);
+        MenuItem drink2 = new MenuItem("Fanta", 9);
         SF.s.addDrink(drink);
         SF.s.addDrink(drink2);
 
@@ -88,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
             TextView tableNr = (TextView) findViewById(R.id.tableNr);
             tableNr.setText(value);
         }
+
+        //Summan av Kundkorgen
+        SF.s.sumTxt = (TextView) findViewById(R.id.sum);
 
         /*sendButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -115,6 +115,7 @@ public class CartCustomAdapter extends RecyclerView.Adapter<CartCustomAdapter.My
                     }
                     else {
                         SF.s.removeFromCart(getAdapterPosition());
+                        SF.s.setSumCart();
                     }
                     counter.setText(String.valueOf(item.getCount()));
                 }
