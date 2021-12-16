@@ -7,6 +7,33 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/tableNr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="103dp" />
+
+    <TextView
+        android:id="@+id/labelStarters"
+        android:layout_width="190dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif"
+        android:text="Förrätter"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/labelDrinks"
         android:layout_width="190dp"
         android:layout_height="33dp"
@@ -20,35 +47,6 @@
         android:textStyle="bold|italic"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/labelCart"
-        android:layout_width="190dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="275dp"
-        android:layout_marginTop="79dp"
-        android:fontFamily="sans-serif"
-        android:text="Beställning"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="24sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintStart_toEndOf="@+id/labelDrinks"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="91dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:editable="false"
-        android:ems="10"
-        android:text="Valt Bord:"
-        android:textColor="#000000"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Deprecated" />
 
     <TextView
         android:id="@+id/labelFood"
@@ -66,32 +64,19 @@
         app:layout_constraintTop_toBottomOf="@id/recyclerStarters" />
 
     <TextView
-        android:id="@+id/labelStarters"
+        android:id="@+id/labelCart"
         android:layout_width="190dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="80dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="275dp"
+        android:layout_marginTop="79dp"
         android:fontFamily="sans-serif"
-        android:text="Förrätter"
+        android:text="Beställning"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         android:textStyle="bold|italic"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelDrinks"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerStarters"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="2dp"
-        app:layout_constraintEnd_toStartOf="@id/recyclerDrink"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelStarters"
-        app:layout_constraintWidth_percent="0.30"
-        app:layout_constraintWidth_default="percent" />
 
     <TextView
         android:id="@+id/sum"
@@ -107,6 +92,20 @@
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/recyclerViewCart" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerStarters"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toStartOf="@id/recyclerDrink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelStarters"
+        app:layout_constraintWidth_percent="0.30"
+        app:layout_constraintWidth_default="percent" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerFood"
@@ -126,7 +125,7 @@
         android:layout_height="537dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@id/recyclerFood"
+        app:layout_constraintStart_toEndOf="@id/recyclerStarters"
         app:layout_constraintEnd_toStartOf="@id/recyclerViewCart"
         app:layout_constraintTop_toBottomOf="@id/labelDrinks"
         app:layout_constraintEnd_toEndOf="parent"
@@ -144,20 +143,6 @@
         app:layout_constraintTop_toBottomOf="@+id/labelCart"
         app:layout_constraintWidth_default="percent"
         app:layout_constraintWidth_percent="0.30" />
-
-
-
-    <TextView
-        android:id="@+id/tableNr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="18dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sendOrderButton"

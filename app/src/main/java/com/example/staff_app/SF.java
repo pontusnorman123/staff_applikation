@@ -32,6 +32,7 @@ public class SF {
         foods = new ArrayList<>();
         drinks = new ArrayList<>();
         cart = new ArrayList<>();
+        starters = new ArrayList<>();
     }
 
     public void addStarter(MenuItem f) { starters.add(f); }

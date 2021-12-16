@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             String value = extras.getString("key");
             //The key argument here must match that used in the other activity
             TextView tableNr = (TextView) findViewById(R.id.tableNr);
-            tableNr.setText(value);
+            tableNr.setText("Bordsnummer: " + value);
         }
 
         //Summan av Kundkorgen
