@@ -81,37 +81,58 @@ public class XmlReaderBooking extends AsyncTask<Void, Void, Bookings> {
                         if(result.BookingTable.get(i).tablenr == 1){
                             name1.setText(result.BookingTable.get(i).name);
                             guest1.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time1.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time1.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time1.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 2){
                             name2.setText(result.BookingTable.get(i).name);
                             guest2.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time2.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time2.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time2.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 3){
                             name3.setText(result.BookingTable.get(i).name);
                             guest3.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time3.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time3.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time3.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 4){
                             name4.setText(result.BookingTable.get(i).name);
                             guest4.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time4.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time4.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time4.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 5){
                             name5.setText(result.BookingTable.get(i).name);
                             guest5.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time5.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time5.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time5.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 6){
                             name6.setText(result.BookingTable.get(i).name);
                             guest6.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time6.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time6.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time6.setText("Dinner");
                         }
                         if(result.BookingTable.get(i).tablenr == 7){
                             name7.setText(result.BookingTable.get(i).name);
                             guest7.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            time7.setText(String.valueOf(result.BookingTable.get(i).pass));
+                            if(result.BookingTable.get(i).pass == 1)
+                                time7.setText("Lunch");
+                            if(result.BookingTable.get(i).pass == 2)
+                                time7.setText("Dinner");
                         }
                     }
 

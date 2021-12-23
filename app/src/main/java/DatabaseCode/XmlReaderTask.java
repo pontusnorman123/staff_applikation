@@ -70,10 +70,15 @@ public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
             public void run() {
                 SF.s.resetAll();
                 for(int i = 0; i < result.menuitemTable.size(); i++){
-                    SF.s.addFood(new MenuItem(result.menuitemTable.get(i).foodname,
-                            result.menuitemTable.get(i).id, result.menuitemTable.get(i).price));
+                    if(result.menuitemTable.get(i).foodtype==1) {
+                        SF.s.addFood(new MenuItem(result.menuitemTable.get(i).foodname,
+                                result.menuitemTable.get(i).id, result.menuitemTable.get(i).price));
+                    }
+                    if(result.menuitemTable.get(i).foodtype==2){
+                        SF.s.addStarter(new MenuItem(result.menuitemTable.get(i).foodname,
+                                result.menuitemTable.get(i).id, result.menuitemTable.get(i).price));
+                    }
                 }
-                Log.d("MY FOOD", "onFailure: " + SF.s.getFoods().get(0).getDishID());
                 SF.s.customAdapterFood.notifyDataSetChanged();
             }
         });
