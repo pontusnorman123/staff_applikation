@@ -23,6 +23,7 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
     public Menuitems menuitemTable = new Menuitems();
     public Resturangorders resturangTable = new Resturangorders();
+    public Kitchenorders kitchenorders = new Kitchenorders();
     public Handler handler;
     protected Menuitems doInBackground(Void... voids) {
 
@@ -57,6 +58,21 @@ public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
 
             Response<Resturangorders> result = resturanglist.execute();
             resturangTable = result.body();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Retrofit retrofitKitchen = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")//http://10.0.2.2:8080/WebbTest2/webresources/    http://localhost:8080/WebbTest2/webresources/se.miun.register
+                .addConverterFactory(SimpleXmlConverterFactory.create())
+                .client(httpClient.build())
+                .build();
+        GetKitchenOrder serviceK = retrofitKitchen.create(GetKitchenOrder.class);
+        Call<Kitchenorders> kitchenorderList = serviceK.listKitchen();
+        try {
+
+            Response<Kitchenorders> result = kitchenorderList.execute();
+            kitchenorders = result.body();
         } catch (IOException e) {
             e.printStackTrace();
         }

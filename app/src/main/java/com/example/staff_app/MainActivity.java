@@ -16,9 +16,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import DatabaseCode.Kitchenorder;
 import DatabaseCode.Resturangorder;
 import DatabaseCode.XmlReaderTask;
 import DatabaseCode.XmlResturangOrderWriterTask;
+import DatabaseCode.XmlWriterKitchenOrder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -99,18 +101,32 @@ public class MainActivity extends AppCompatActivity {
                 ArrayList<MenuItem> items = SF.s.getCart();
                 //************   Läser in sista Id från resturangOrder   ************//
                 XmlResturangOrderWriterTask xmlWriterTask = new XmlResturangOrderWriterTask();
+                XmlWriterKitchenOrder xmlWriterKitchenOrder = new XmlWriterKitchenOrder();
                 xmlWriterTask.resturangorders.resturangorderTable = new ArrayList<Resturangorder>();
+                xmlWriterKitchenOrder.kitchenorders.kitchenorderTable = new ArrayList<Kitchenorder>();
                 int rSize = xmlReaderTask.resturangTable.resturangorderTable.size();
-                int lastID=1;
+                int lastIDR=1;
                 for (int i = 0; i<rSize; i++){
-                    if(xmlReaderTask.resturangTable.resturangorderTable.get(i).id > lastID)
-                        lastID = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
+                    if(xmlReaderTask.resturangTable.resturangorderTable.get(i).id > lastIDR)
+                        lastIDR = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
                 }
-                lastID++;
-                int loopNr = (items.size())+lastID;
-                for(int i = lastID; i < loopNr; i++){
+                lastIDR++;
+                int kSize = xmlReaderTask.kitchenorders.kitchenorderTable.size();
+                int lastIDk=1;
+                for (int i = 0; i<kSize; i++){
+                    if(xmlReaderTask.kitchenorders.kitchenorderTable.get(i).id > lastIDk)
+                        lastIDk = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
+                }
+                lastIDk++;
+                int loopNrR = (items.size())+lastIDR;
+                for(int i = lastIDR; i < loopNrR; i++, lastIDk++){
                     //xmlWriterTask.tableList = null;
                     Resturangorder element = new Resturangorder();
+                    Kitchenorder kitchenorder = new Kitchenorder();
+                    kitchenorder.id = lastIDk;
+                    kitchenorder.delivered = false;
+                    kitchenorder.done = false;
+                    kitchenorder.orderid = i;
                     element.id = i;
                     element.tablenr = Integer.valueOf(extras.getString("key"));
                     Long tsLong = System.currentTimeMillis();
@@ -118,14 +134,15 @@ public class MainActivity extends AppCompatActivity {
                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                     String dateString = formatter.format(new Date(Long.parseLong(ts)));
                     element.timestamp =ts;
-                    element.notes = items.get(i-lastID).getNotes();
-                    element.dishid = items.get(i-lastID).getDishID();
-                    items.get(i-lastID).getNotes();
+                    element.notes = items.get(i-lastIDR).getNotes();
+                    element.dishid = items.get(i-lastIDR).getDishID();
+                    xmlWriterKitchenOrder.kitchenorders.kitchenorderTable.add(kitchenorder);
                     xmlWriterTask.resturangorders.resturangorderTable.add(element);
-
                 }
                 xmlWriterTask.handler = new Handler();
+                xmlWriterKitchenOrder.handler = new Handler();
                 xmlWriterTask.execute(xmlWriterTask.resturangorders);
+                xmlWriterKitchenOrder.execute();
                 Intent i = new Intent(getApplicationContext(), FrontPageActivity.class);
                 startActivity(i);
             }
