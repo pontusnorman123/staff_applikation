@@ -2,6 +2,7 @@ package com.example.staff_app;
 
 
 import android.content.Context;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+
+import DatabaseCode.GetRetrofitDelivered;
+import DatabaseCode.PutAdapter;
+import DatabaseCode.Structure.Kitchenorder;
+import DatabaseCode.PutRetrofitKitchen;
 
 
 // fills Recycler view with myViewHolders(which is the model of order_row_layout)
@@ -80,6 +86,13 @@ import java.util.ArrayList;
                             finished_status.setText(BUTTON_NOT_DONE_TEXT);
                         } else {
                             order.setDeliveredAs(true);
+
+                            PutAdapter putAdapter = new PutAdapter();
+                            putAdapter.viewList = null;
+                            putAdapter.handler = new Handler();
+                            putAdapter.tableNr = order.getTableNumber();
+                            putAdapter.execute();
+
                             SO.s.removeOrder(getAdapterPosition());
                             finished_status.setText(BUTTON_DONE_TEXT);
                         }

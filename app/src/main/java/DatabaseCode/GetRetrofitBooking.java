@@ -2,17 +2,14 @@ package DatabaseCode;
 
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.util.Log;
 import android.widget.TextView;
-
-import com.example.staff_app.MenuItem;
-import com.example.staff_app.SF;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import DatabaseCode.Structure.Bookings;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -20,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-public class XmlReaderBooking extends AsyncTask<Void, Void, Bookings> {
+public class GetRetrofitBooking extends AsyncTask<Void, Void, Bookings> {
     public TextView name1;
     public TextView guest1;
     public TextView time1;
@@ -56,7 +53,7 @@ public class XmlReaderBooking extends AsyncTask<Void, Void, Bookings> {
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        GetBooking service = retrofit.create(GetBooking.class);
+        Api service = retrofit.create(Api.class);
         Call<Bookings> listMenuItem = service.listBooking();
         try {
 

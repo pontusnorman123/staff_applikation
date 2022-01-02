@@ -1,4 +1,4 @@
-package DatabaseCode;
+package DatabaseCode.Structure;
 
 public class Menuitem{
     public String foodname;

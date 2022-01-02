@@ -14,13 +14,12 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Random;
 
-import DatabaseCode.Kitchenorder;
-import DatabaseCode.Resturangorder;
-import DatabaseCode.XmlReaderTask;
-import DatabaseCode.XmlResturangOrderWriterTask;
-import DatabaseCode.XmlWriterKitchenOrder;
+import DatabaseCode.Structure.Kitchenorder;
+import DatabaseCode.Structure.Resturangorder;
+import DatabaseCode.GetRetrofitMenuId;
+import DatabaseCode.PostRetrofitResturang;
+import DatabaseCode.PostRetrofitKitchen;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         //SF.s.addFood(food);
         //SF.s.addFood(food2);
 
+        SF.s.addFood(new MenuItem("Pepsi",20));
+
 
         //SF.s.addStarter(new MenuItem("Toast Skagen", 5));
         //SF.s.addStarter(new MenuItem("Tomatsoppa", 1));
@@ -46,15 +47,17 @@ public class MainActivity extends AppCompatActivity {
         //SF.s.addFood(new MenuItem("kyckling sushi"));
         //SF.s.addFood(new MenuItem("1 raw potato"));
 
-        XmlReaderTask xmlReaderTask = new XmlReaderTask();
-        xmlReaderTask.menuitemTable = null;
-        xmlReaderTask.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
-        xmlReaderTask.execute();
+        GetRetrofitMenuId getRetrofitMenuId = new GetRetrofitMenuId();
+        getRetrofitMenuId.menuitemTable = null;
+        getRetrofitMenuId.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
+        getRetrofitMenuId.execute();
 
         MenuItem drink = new MenuItem("Coca Cola", 3);
         MenuItem drink2 = new MenuItem("Fanta", 9);
         SF.s.addDrink(drink);
         SF.s.addDrink(drink2);
+
+        //SF.s.customAdapterDrink.notifyDataSetChanged();
 
         //private int count = 0;
 
@@ -100,27 +103,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<MenuItem> items = SF.s.getCart();
                 //************   Läser in sista Id från resturangOrder   ************//
-                XmlResturangOrderWriterTask xmlWriterTask = new XmlResturangOrderWriterTask();
-                XmlWriterKitchenOrder xmlWriterKitchenOrder = new XmlWriterKitchenOrder();
-                xmlWriterTask.resturangorders.resturangorderTable = new ArrayList<Resturangorder>();
-                xmlWriterKitchenOrder.kitchenorders.kitchenorderTable = new ArrayList<Kitchenorder>();
-                int rSize = xmlReaderTask.resturangTable.resturangorderTable.size();
+                PostRetrofitResturang postRetrofitResturang = new PostRetrofitResturang();
+                PostRetrofitKitchen postRetrofitKitchen = new PostRetrofitKitchen();
+                postRetrofitResturang.resturangorders.resturangorderTable = new ArrayList<Resturangorder>();
+                postRetrofitKitchen.kitchenorders.kitchenorderTable = new ArrayList<Kitchenorder>();
+                int rSize = getRetrofitMenuId.resturangTable.resturangorderTable.size();
                 int lastIDR=1;
                 for (int i = 0; i<rSize; i++){
-                    if(xmlReaderTask.resturangTable.resturangorderTable.get(i).id > lastIDR)
-                        lastIDR = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
+                    if(getRetrofitMenuId.resturangTable.resturangorderTable.get(i).id > lastIDR)
+                        lastIDR = getRetrofitMenuId.resturangTable.resturangorderTable.get(i).id;
                 }
                 lastIDR++;
-                int kSize = xmlReaderTask.kitchenorders.kitchenorderTable.size();
+                int kSize = getRetrofitMenuId.kitchenorders.kitchenorderTable.size();
                 int lastIDk=1;
                 for (int i = 0; i<kSize; i++){
-                    if(xmlReaderTask.kitchenorders.kitchenorderTable.get(i).id > lastIDk)
-                        lastIDk = xmlReaderTask.resturangTable.resturangorderTable.get(i).id;
+                    if(getRetrofitMenuId.kitchenorders.kitchenorderTable.get(i).id > lastIDk)
+                        lastIDk = getRetrofitMenuId.kitchenorders.kitchenorderTable.get(i).id;
                 }
                 lastIDk++;
                 int loopNrR = (items.size())+lastIDR;
                 for(int i = lastIDR; i < loopNrR; i++, lastIDk++){
-                    //xmlWriterTask.tableList = null;
                     Resturangorder element = new Resturangorder();
                     Kitchenorder kitchenorder = new Kitchenorder();
                     kitchenorder.id = lastIDk;
@@ -136,13 +138,13 @@ public class MainActivity extends AppCompatActivity {
                     element.timestamp =ts;
                     element.notes = items.get(i-lastIDR).getNotes();
                     element.dishid = items.get(i-lastIDR).getDishID();
-                    xmlWriterKitchenOrder.kitchenorders.kitchenorderTable.add(kitchenorder);
-                    xmlWriterTask.resturangorders.resturangorderTable.add(element);
+                    postRetrofitKitchen.kitchenorders.kitchenorderTable.add(kitchenorder);
+                    postRetrofitResturang.resturangorders.resturangorderTable.add(element);
                 }
-                xmlWriterTask.handler = new Handler();
-                xmlWriterKitchenOrder.handler = new Handler();
-                xmlWriterTask.execute(xmlWriterTask.resturangorders);
-                xmlWriterKitchenOrder.execute();
+                postRetrofitResturang.handler = new Handler();
+                postRetrofitKitchen.handler = new Handler();
+                postRetrofitResturang.execute(postRetrofitResturang.resturangorders);
+                postRetrofitKitchen.execute();
                 Intent i = new Intent(getApplicationContext(), FrontPageActivity.class);
                 startActivity(i);
             }

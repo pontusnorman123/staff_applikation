@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 
+import DatabaseCode.Structure.Resturangorders;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -13,7 +14,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-public class XmlResturangOrderWriterTask extends AsyncTask<Resturangorders, Void, Resturangorders> {
+public class PostRetrofitResturang extends AsyncTask<Resturangorders, Void, Resturangorders> {
     private static final String TAG = "XmlWriterTask";
     public Resturangorders resturangorders = new Resturangorders();
     public Handler handler;
@@ -30,11 +31,11 @@ public class XmlResturangOrderWriterTask extends AsyncTask<Resturangorders, Void
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        PostResturangOrderService service = retrofit.create(PostResturangOrderService.class);
+        Api service = retrofit.create(Api.class);
 
 
         for(int i = 0; i < resturangorders.resturangorderTable.size(); i++){
-            Call<ResponseBody> call = service.sendNewData(
+            Call<ResponseBody> call = service.newResturang(
                     resturangorders.resturangorderTable.get(i)
             );
 

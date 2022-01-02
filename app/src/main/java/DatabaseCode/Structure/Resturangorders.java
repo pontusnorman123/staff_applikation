@@ -1,4 +1,4 @@
-package DatabaseCode;
+package DatabaseCode.Structure;
 
 import org.simpleframework.xml.ElementList;
 import org.simpleframework.xml.Root;

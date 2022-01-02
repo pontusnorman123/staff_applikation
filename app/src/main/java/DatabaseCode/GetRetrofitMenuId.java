@@ -1,18 +1,16 @@
 package DatabaseCode;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
-import android.util.Log;
-import android.widget.TextView;
 
-import com.example.staff_app.FoodCustomAdapter;
-import com.example.staff_app.MainActivity;
 import com.example.staff_app.MenuItem;
 import com.example.staff_app.SF;
 
 import java.io.IOException;
 
+import DatabaseCode.Structure.Kitchenorders;
+import DatabaseCode.Structure.Menuitems;
+import DatabaseCode.Structure.Resturangorders;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
@@ -20,7 +18,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
+public class GetRetrofitMenuId extends AsyncTask<Void, Void, Menuitems> {
     public Menuitems menuitemTable = new Menuitems();
     public Resturangorders resturangTable = new Resturangorders();
     public Kitchenorders kitchenorders = new Kitchenorders();
@@ -33,12 +31,12 @@ public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
         httpClient.addInterceptor(logging);  // <-- this is the important line!
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")//http://10.0.2.2:8080/WebbTest2/webresources/    http://localhost:8080/WebbTest2/webresources/se.miun.register
+                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        GetInterface service = retrofit.create(GetInterface.class);
-        Call<Menuitems> listMenuItem = service.listMenuItem();
+        Api service = retrofit.create(Api.class);
+        Call<Menuitems> listMenuItem = service.listMenu();
         try {
 
             Response<Menuitems> result = listMenuItem.execute();
@@ -48,11 +46,11 @@ public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
         }
 
         Retrofit retrofitResturang = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")//http://10.0.2.2:8080/WebbTest2/webresources/    http://localhost:8080/WebbTest2/webresources/se.miun.register
+                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        GetResturang serviceR = retrofitResturang.create(GetResturang.class);
+        Api serviceR = retrofitResturang.create(Api.class);
         Call<Resturangorders> resturanglist = serviceR.listResturang();
         try {
 
@@ -63,11 +61,11 @@ public class XmlReaderTask extends AsyncTask<Void, Void, Menuitems> {
         }
 
         Retrofit retrofitKitchen = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")//http://10.0.2.2:8080/WebbTest2/webresources/    http://localhost:8080/WebbTest2/webresources/se.miun.register
+                .baseUrl("http://10.0.2.2:8080/Anton2/webresources/")
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        GetKitchenOrder serviceK = retrofitKitchen.create(GetKitchenOrder.class);
+        Api serviceK = retrofitKitchen.create(Api.class);
         Call<Kitchenorders> kitchenorderList = serviceK.listKitchen();
         try {
 

@@ -1,4 +1,4 @@
-package DatabaseCode;
+package DatabaseCode.Structure;
 
 public class Resturangorder {
     public int dishid;

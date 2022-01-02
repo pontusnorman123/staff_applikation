@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import DatabaseCode.GetRetrofitDelivered;
+
 public class FrontPageActivity extends AppCompatActivity implements View.OnClickListener{
 
 
@@ -43,7 +45,7 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
         tableSevenButton.setOnClickListener(this);
 
         // start database loading...
-        int MILLISECONDS_BETWEEN_UPDATES = 5000; // 5 seconds
+        int MILLISECONDS_BETWEEN_UPDATES = 1000; // 5 seconds
         // Handler is similar to async
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -54,7 +56,10 @@ public class FrontPageActivity extends AppCompatActivity implements View.OnClick
                 //SO.s.databaseLoad();
 
                 //FROM TESTARRAY
-                SO.s.fakeLoad();
+                GetRetrofitDelivered getRetrofitDelivered = new GetRetrofitDelivered();
+                getRetrofitDelivered.viewList = null;
+                getRetrofitDelivered.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
+                getRetrofitDelivered.execute();
 
                 handler.postDelayed(this, MILLISECONDS_BETWEEN_UPDATES);
             }

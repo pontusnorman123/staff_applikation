@@ -4,6 +4,8 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 
+import DatabaseCode.Structure.Kitchenorders;
+import DatabaseCode.Structure.Resturangorders;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -13,7 +15,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.simplexml.SimpleXmlConverterFactory;
 
-public class XmlWriterKitchenOrder extends AsyncTask<Void, Void, Resturangorders> {
+public class PostRetrofitKitchen extends AsyncTask<Void, Void, Resturangorders> {
     public Handler handler;
     public Kitchenorders kitchenorders = new Kitchenorders();
     protected Resturangorders doInBackground(Void... voids){
@@ -27,10 +29,10 @@ public class XmlWriterKitchenOrder extends AsyncTask<Void, Void, Resturangorders
                 .addConverterFactory(SimpleXmlConverterFactory.create())
                 .client(httpClient.build())
                 .build();
-        PostKitchenOrder service = retrofit.create(PostKitchenOrder.class);
+        Api service = retrofit.create(Api.class);
 
         for(int i = 0; i < kitchenorders.kitchenorderTable.size(); i++){
-            Call<ResponseBody> call = service.sendNewData(
+            Call<ResponseBody> call = service.newKitchen(
                     kitchenorders.kitchenorderTable.get(i)
             );
 

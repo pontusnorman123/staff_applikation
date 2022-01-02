@@ -2,6 +2,8 @@ package com.example.staff_app;
 
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.SortedList;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -25,6 +27,8 @@ public class SO {
         orders = new ArrayList<>();
         updateOrderNumberInFrontPage();
     }
+
+    public ArrayList<Order> getOrders(){return orders;}
 
     public void addOrders(ArrayList<Order> o) {
         int oldSize = orders.size();
@@ -54,13 +58,13 @@ public class SO {
 
     }
 
-    public void fakeLoad() {
+    /*public void fakeLoad() {
         if(orders.size() < 8) {
             int testTableNumber = rand.nextInt(7) + 1;
             addOrder(new Order(testTableNumber));
             addOrder(new Order(testTableNumber));
         }
-    }
+    }*/
 
     private SO() {
     }
