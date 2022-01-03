@@ -101,7 +101,7 @@ public class GetRetrofitDelivered extends AsyncTask<Void, Void, Void> {
                                         exist = true;
                                 }
                                 boolean allDone = true;
-                                for(int k = 0;k < kitchenList.kitchenorderTable.size() && allDone; k++){
+                                for(int k = 0;k < viewList.viewTable.size() && allDone; k++){
                                     if(j!=k)
                                         if(viewList.viewTable.get(j).tablenr == viewList.viewTable.get(k).tablenr) {
                                             int localID = viewList.viewTable.get(k).id;

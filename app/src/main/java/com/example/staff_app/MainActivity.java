@@ -1,9 +1,11 @@
 package com.example.staff_app;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -145,8 +147,33 @@ public class MainActivity extends AppCompatActivity {
                 postRetrofitKitchen.handler = new Handler();
                 postRetrofitResturang.execute(postRetrofitResturang.resturangorders);
                 postRetrofitKitchen.execute();
-                Intent i = new Intent(getApplicationContext(), FrontPageActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(getApplicationContext(), FrontPageActivity.class);
+                //startActivity(i);
+                System.out.println("Skicka knapp tryckt"); // Felsökning, ignorera..
+                AlertDialog.Builder alert = new AlertDialog.Builder(SF.s.customAdapterCart.context); // Öppnar popup rutan.
+                alert.setTitle("Order skickad till köket."); // Meddelande.
+
+                // Knapp som returnerar den anställda tillbaka till framsidan.
+
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        System.out.println("Tillbaka till framsidan"); // Felsökning, ignorera..
+                        finish();
+                    }
+                });
+
+                // Om anställda inte trycker på OK så återvänds automatiskt till MainActivity.
+                int MILLISECONDS_BEFORE_RETURN = 3000; // 3 seconds
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.postDelayed(this, MILLISECONDS_BEFORE_RETURN);
+                        finish();
+                    }
+                }, MILLISECONDS_BEFORE_RETURN);
+
+                alert.show();
             }
         });
 

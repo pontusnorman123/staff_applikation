@@ -93,6 +93,10 @@ public class GetRetrofitMenuId extends AsyncTask<Void, Void, Menuitems> {
                                 result.menuitemTable.get(i).id, result.menuitemTable.get(i).price));
                     }
                 }
+                MenuItem drink = new MenuItem("Coca Cola", 3);
+                MenuItem drink2 = new MenuItem("Fanta", 9);
+                SF.s.addDrink(drink);
+                SF.s.addDrink(drink2);
                 SF.s.customAdapterFood.notifyDataSetChanged();
             }
         });
