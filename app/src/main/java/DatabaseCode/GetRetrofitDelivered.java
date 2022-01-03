@@ -67,6 +67,9 @@ public class GetRetrofitDelivered extends AsyncTask<Void, Void, Void> {
         handler.post(new Runnable() {
             @Override
             public void run() {
+                /*Behandling av inkommande data från databasen*/
+                //Steg 1: kolla om det finns en nyare tidssämpel i databasen än den lokala listan
+                //Detta för att kolla om det finns ny data redo för hämtning
                 Long localTime = Long.parseLong("0");
                 Long databaseTime = Long.parseLong("1");
 
@@ -86,13 +89,19 @@ public class GetRetrofitDelivered extends AsyncTask<Void, Void, Void> {
                 }
 
                 if(databaseTime > localTime){
+                    //Steg 2: Om det finns ny data att hämta...
 
                     for(int i = 0; i< kitchenList.kitchenorderTable.size(); i++){
                         for(int j = 0; j < viewList.viewTable.size(); j++){
                             boolean done = kitchenList.kitchenorderTable.get(i).done;
                             boolean delivered = kitchenList.kitchenorderTable.get(i).delivered;
+
+                            //Om indexet i är vid ett värde som: är done && inte delivered &&
+                            // index i's id motsvarar index j's id(synkronisering mellan listerna))
                             if(kitchenList.kitchenorderTable.get(i).id == viewList.viewTable.get(j).id &&
                                     done && !delivered){
+
+                                //Kollar om det kommande objektet från databasen finns i den lokala listan
                                 boolean exist = false;
                                 for(int k = 0;k < items.size(); k++){
                                     int localOrderTableNr = items.get(k).getTableNumber();
@@ -100,12 +109,15 @@ public class GetRetrofitDelivered extends AsyncTask<Void, Void, Void> {
                                     if(tableNr == localOrderTableNr)
                                         exist = true;
                                 }
+
+                                //Kollar om alla andra objekt med samma tableNr är done
                                 boolean allDone = true;
                                 for(int k = 0;k < viewList.viewTable.size() && allDone; k++){
                                     if(j!=k)
                                         if(viewList.viewTable.get(j).tablenr == viewList.viewTable.get(k).tablenr) {
                                             int localID = viewList.viewTable.get(k).id;
                                             int l = 0;
+                                            // loop l är för synkronisering mellan listor
                                             for(; l < kitchenList.kitchenorderTable.size() && localID != kitchenList.kitchenorderTable.get(l).id; l++){}
                                             if(!kitchenList.kitchenorderTable.get(l).done && viewList.viewTable.get(k).id != 1)
                                                 allDone = false;
@@ -117,33 +129,6 @@ public class GetRetrofitDelivered extends AsyncTask<Void, Void, Void> {
                             }
                         }
                     }
-
-
-
-                    /*for(int i = 0; i< viewList.viewTable.size(); i++){
-                        boolean done = kitchenList.kitchenorderTable.get(i).done;
-                        boolean delivered = kitchenList.kitchenorderTable.get(i).delivered;
-                        int tableNr = viewList.viewTable.get(i).tablenr;
-                        if(done && !delivered && kitchenList.kitchenorderTable.get(i).id != 1){
-                            boolean add = true;
-                            for(int j = 0; j< viewList.viewTable.size() && add; j++){
-                                int tableNrj = viewList.viewTable.get(j).tablenr;
-                                if(tableNr == tableNrj)
-                                    add = false;
-                            }
-                            if(add){
-                                boolean exist = false;
-                                for(int k = 0;k < items.size(); k++){
-                                    int localorderid = items.get(k).getResturangid();
-                                    if(viewList.viewTable.get(i).id == localorderid)
-                                        exist = true;
-                                }
-                                if(!exist)
-                                    SO.s.addOrder(new Order(tableNr, viewList.viewTable.get(i).kitchenid, viewList.viewTable.get(i).id, viewList.viewTable.get(i).timestamp));
-                            }
-
-                        }
-                    }*/
                 }
             }
         });
