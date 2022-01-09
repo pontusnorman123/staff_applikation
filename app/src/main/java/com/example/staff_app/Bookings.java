@@ -48,9 +48,9 @@ public class Bookings extends AppCompatActivity {
         getRetrofitBooking.name6 = findViewById(R.id.textView29);
         getRetrofitBooking.guest6 = findViewById(R.id.textView27);
         getRetrofitBooking.time6 = findViewById(R.id.textView28);
-        getRetrofitBooking.name7 = findViewById(R.id.textView29);
-        getRetrofitBooking.guest7 = findViewById(R.id.textView27);
-        getRetrofitBooking.time7 = findViewById(R.id.textView28);
+        getRetrofitBooking.name7 = findViewById(R.id.textView32);
+        getRetrofitBooking.guest7 = findViewById(R.id.textView30);
+        getRetrofitBooking.time7 = findViewById(R.id.textView31);
         getRetrofitBooking.handler = new Handler();//Håller  koll på trådsom är ansvar för  nätverk
         getRetrofitBooking.execute();
     }
