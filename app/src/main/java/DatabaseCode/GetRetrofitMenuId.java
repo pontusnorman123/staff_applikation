@@ -95,6 +95,8 @@ public class GetRetrofitMenuId extends AsyncTask<Void, Void, Menuitems> {
                 }
                 MenuItem drink = new MenuItem("Coca Cola", 3);
                 MenuItem drink2 = new MenuItem("Fanta", 9);
+                MenuItem drink3 = new MenuItem("Pepsi",20);
+                SF.s.addDrink(drink3);
                 SF.s.addDrink(drink);
                 SF.s.addDrink(drink2);
                 SF.s.customAdapterFood.notifyDataSetChanged();

@@ -2,8 +2,11 @@ package com.example.staff_app;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Button;
 
 import DatabaseCode.GetRetrofitBooking;
@@ -15,16 +18,18 @@ public class Bookings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
-        Button button = findViewById(R.id.BookingButton);
+        Button button = findViewById(R.id.refreshButton);
 
         BookingDB();
 
-        /*button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BookingDB();
+                Intent intent = getIntent();
+                finish();
+                startActivity(intent);
             }
-        });*/
+        });
     }
 
     public void BookingDB(){

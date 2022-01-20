@@ -72,65 +72,129 @@ public class GetRetrofitBooking extends AsyncTask<Void, Void, Bookings> {
             public void run() {
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
                 String systemDate = currentDate.substring(0,2)+'.'+currentDate.substring(3, 5)+'.'+currentDate.substring(6, 10);
+                String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                 //String dateDB = result.BookingTable.get(0).date;
                 for(int i = 0; i < result.BookingTable.size(); i++){
                     if(result.BookingTable.get(i).date.equals(systemDate)){
-                        if(result.BookingTable.get(i).tablenr == 1){
-                            name1.setText(result.BookingTable.get(i).name);
-                            guest1.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time1.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time1.setText("Dinner");
+
+                        if(stringCompare(currentTime, "15:00:00")<0){
+
+                            if(result.BookingTable.get(i).tablenr == 1 && result.BookingTable.get(i).pass == 1){
+                                name1.setText(result.BookingTable.get(i).name);
+                                guest1.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time1.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time1.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 2 && result.BookingTable.get(i).pass == 1){
+                                name2.setText(result.BookingTable.get(i).name);
+                                guest2.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time2.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time2.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 3  && result.BookingTable.get(i).pass == 1){
+                                name3.setText(result.BookingTable.get(i).name);
+                                guest3.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time3.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time3.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 4  && result.BookingTable.get(i).pass == 1){
+                                name4.setText(result.BookingTable.get(i).name);
+                                guest4.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time4.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time4.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 5  && result.BookingTable.get(i).pass == 1){
+                                name5.setText(result.BookingTable.get(i).name);
+                                guest5.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time5.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time5.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 6  && result.BookingTable.get(i).pass == 1){
+                                name6.setText(result.BookingTable.get(i).name);
+                                guest6.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time6.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time6.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 7  && result.BookingTable.get(i).pass == 1){
+                                name7.setText(result.BookingTable.get(i).name);
+                                guest7.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time7.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time7.setText("Dinner");
+                            }
                         }
-                        if(result.BookingTable.get(i).tablenr == 2){
-                            name2.setText(result.BookingTable.get(i).name);
-                            guest2.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time2.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time2.setText("Dinner");
+                        else{
+                            if(result.BookingTable.get(i).tablenr == 1 && result.BookingTable.get(i).pass == 2){
+                                name1.setText(result.BookingTable.get(i).name);
+                                guest1.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time1.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time1.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 2 && result.BookingTable.get(i).pass == 2){
+                                name2.setText(result.BookingTable.get(i).name);
+                                guest2.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time2.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time2.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 3 && result.BookingTable.get(i).pass == 2){
+                                name3.setText(result.BookingTable.get(i).name);
+                                guest3.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time3.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time3.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 4 && result.BookingTable.get(i).pass == 2){
+                                name4.setText(result.BookingTable.get(i).name);
+                                guest4.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time4.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time4.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 5 && result.BookingTable.get(i).pass == 2){
+                                name5.setText(result.BookingTable.get(i).name);
+                                guest5.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time5.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time5.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 6 && result.BookingTable.get(i).pass == 2){
+                                name6.setText(result.BookingTable.get(i).name);
+                                guest6.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time6.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time6.setText("Dinner");
+                            }
+                            if(result.BookingTable.get(i).tablenr == 7 && result.BookingTable.get(i).pass == 2){
+                                name7.setText(result.BookingTable.get(i).name);
+                                guest7.setText(String.valueOf(result.BookingTable.get(i).guestnr));
+                                if(result.BookingTable.get(i).pass == 1)
+                                    time7.setText("Lunch");
+                                if(result.BookingTable.get(i).pass == 2)
+                                    time7.setText("Dinner");
+                            }
                         }
-                        if(result.BookingTable.get(i).tablenr == 3){
-                            name3.setText(result.BookingTable.get(i).name);
-                            guest3.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time3.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time3.setText("Dinner");
-                        }
-                        if(result.BookingTable.get(i).tablenr == 4){
-                            name4.setText(result.BookingTable.get(i).name);
-                            guest4.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time4.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time4.setText("Dinner");
-                        }
-                        if(result.BookingTable.get(i).tablenr == 5){
-                            name5.setText(result.BookingTable.get(i).name);
-                            guest5.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time5.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time5.setText("Dinner");
-                        }
-                        if(result.BookingTable.get(i).tablenr == 6){
-                            name6.setText(result.BookingTable.get(i).name);
-                            guest6.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time6.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time6.setText("Dinner");
-                        }
-                        if(result.BookingTable.get(i).tablenr == 7){
-                            name7.setText(result.BookingTable.get(i).name);
-                            guest7.setText(String.valueOf(result.BookingTable.get(i).guestnr));
-                            if(result.BookingTable.get(i).pass == 1)
-                                time7.setText("Lunch");
-                            if(result.BookingTable.get(i).pass == 2)
-                                time7.setText("Dinner");
-                        }
+
                     }
 
 
@@ -139,5 +203,33 @@ public class GetRetrofitBooking extends AsyncTask<Void, Void, Bookings> {
         });
 
 
+    }
+
+    public static int stringCompare(String str1, String str2){
+
+        int l1 = str1.length();
+        int l2 = str2.length();
+        int lmin = Math.min(l1, l2);
+
+        for (int i = 0; i < lmin; i++) {
+            int str1_ch = (int)str1.charAt(i);
+            int str2_ch = (int)str2.charAt(i);
+
+            if (str1_ch != str2_ch) {
+                return str1_ch - str2_ch;
+            }
+        }
+
+        // Edge case for strings like
+        // String 1="Geeks" and String 2="Geeksforgeeks"
+        if (l1 != l2) {
+            return l1 - l2;
+        }
+
+        // If none of the above conditions is true,
+        // it implies both the strings are equal
+        else {
+            return 0;
+        }
     }
 }
